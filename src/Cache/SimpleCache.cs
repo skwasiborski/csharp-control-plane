@@ -3,12 +3,13 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Envoy.Api.V2;
 using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
 
-namespace Cache
+namespace Envoy.ControlPlane.Cache
 {
     public interface ISnapshotCache : ICache
     {
@@ -20,79 +21,63 @@ namespace Cache
         private readonly ConcurrentDictionary<string, NodeInfo> _nodeInfos =
             new ConcurrentDictionary<string, NodeInfo>();
 
+        private int _pendingResponseId = 0;
+        
         public void SetSnapshot(string node, Snapshot snapshot)
         {
             var info = _nodeInfos.GetOrAdd(node, id => new NodeInfo());
 
-            IEnumerable<(LastKnowRequest lastKnowRequest, DiscoveryResponse response)> requestsToResolve;
+            IEnumerable<(KeyValuePair<int, PendingResponse> pendingResponse, DiscoveryResponse response)> requestsToResolve;
 
             lock (info.Lock)
             {
                 info.Snapshot = snapshot;
 
-                requestsToResolve = info.LastKnownRequests
+                requestsToResolve = info.PendingResponses
                     .Where(kv => kv.Value.Request.VersionInfo != snapshot.GetVersion(kv.Value.Request.TypeUrl))
                     .Select(kv => (
-                        kv.Value,
+                        kv,
                         CreateResponse(
                             kv.Value.Request,
                             snapshot.GetResources(kv.Value.Request.TypeUrl),
                             snapshot.GetVersion(kv.Value.Request.TypeUrl))))
                     .ToArray(); // force the evaluation in lock
+
+                foreach (var r in requestsToResolve)
+                {
+                    info.PendingResponses.Remove(r.pendingResponse.Key);
+                }
             }
 
             foreach (var request in requestsToResolve)
             {
-                request.lastKnowRequest.Resolve(request.response);
+                request.pendingResponse.Value.Resolve(request.response);
             }
         }
 
-        public ValueTask<DiscoveryResponse> GetResponseForStream(DiscoveryRequest request)
+        public Watch CreateWatch(DiscoveryRequest request)
         {
-            LastKnowRequest lastKnowRequest;
-            bool resolveImmediatly = false;
 
             var info = _nodeInfos.GetOrAdd(request.Node.Id, id => new NodeInfo());
 
             lock (info.Lock)
             {
-                var oldResponseExist = info.LastKnownRequests.TryGetValue(request.TypeUrl, out var previousResponse);
-
-                if (info.Snapshot != null &&
-                    request.VersionInfo != info.Snapshot.GetVersion(request.TypeUrl))
+                if (info.Snapshot == null || request.VersionInfo == info.Snapshot.GetVersion(request.TypeUrl))
                 {
-                    // the version envoy knows is older then snapshot respond immediatly.
-                    resolveImmediatly = true;
+                    var watchId = Interlocked.Increment(ref _pendingResponseId);
+                    var currentRequest = new PendingResponse(request);
+                    info.PendingResponses[watchId] = currentRequest;
+                    
+                    return new Watch(
+                        currentRequest.Response, 
+                        () => CancelWatch(request.Node.Id, watchId));
                 }
-                else if (oldResponseExist &&
-                         previousResponse.Request.ResourceNames != request.ResourceNames) // TODO: proper comprison
-                {
-                    // envoy requested new resources respond immediatly.
-                    resolveImmediatly = true;
-                }
-
-                if (oldResponseExist)
-                {
-                    // the old response should not be used.
-                    previousResponse.Fault();
-                }
-
-                lastKnowRequest = new LastKnowRequest(request);
-                info.LastKnownRequests[request.TypeUrl] = lastKnowRequest;
             }
-
-            if (resolveImmediatly &&
-                info.Snapshot != null
-            ) // TODO: check if we have all requested resources (if not leave the response pending)
-            {
-                // We alredy have all data for this request and there is new data (as compared to last known requast)
-                var resources = info.Snapshot.GetResources(request.TypeUrl);
-
-                lastKnowRequest.Resolve(
-                    CreateResponse(request, resources, info.Snapshot.GetVersion(request.TypeUrl)));
-            }
-
-            return new ValueTask<DiscoveryResponse>(lastKnowRequest.Response);
+            
+            var resources = info.Snapshot.GetResources(request.TypeUrl);
+            return new Watch (
+                Task.FromResult(CreateResponse(request, resources, info.Snapshot.GetVersion(request.TypeUrl))), 
+                Watch.NoOp);
         }
 
         public ValueTask<DiscoveryResponse> GetResponseForFetch(DiscoveryRequest request)
@@ -110,6 +95,15 @@ namespace Cache
 
             var resources = info.Snapshot.GetResources(request.TypeUrl);
             return new ValueTask<DiscoveryResponse>(CreateResponse(request, resources, version));
+        }
+
+        private void CancelWatch(string nodeId, int watchId)
+        {
+            var info = _nodeInfos.GetOrAdd(nodeId, id => new NodeInfo());
+            lock (info.Lock)
+            {
+                info.PendingResponses.Remove(watchId);
+            }
         }
 
         private DiscoveryResponse CreateResponse(
@@ -139,7 +133,7 @@ namespace Cache
             return response;
         }
 
-        private class LastKnowRequest
+        private class PendingResponse
         {
             private readonly TaskCompletionSource<DiscoveryResponse> _tcs;
             private readonly DiscoveryRequest _request;
@@ -148,7 +142,7 @@ namespace Cache
 
             public DiscoveryRequest Request => _request;
 
-            public LastKnowRequest(DiscoveryRequest request)
+            public PendingResponse(DiscoveryRequest request)
             {
                 _request = request;
                 _tcs = new TaskCompletionSource<DiscoveryResponse>(TaskCreationOptions.RunContinuationsAsynchronously);
@@ -156,14 +150,9 @@ namespace Cache
 
             public void Resolve(DiscoveryResponse response)
             {
-                // using try here because there can be ace codition when setting new snapshot and processing new request rom envoy at the same time
+                // using try here because there can be race codition when setting new snapshot and processing new request rom envoy at the same time
                 // regardless who wins the appropriate data will be send.
                 _tcs.TrySetResult(response);
-            }
-
-            public void Fault()
-            {
-                _tcs.TrySetException(new InvalidOperationException("This response was sperceeded by new request"));
             }
         }
 
@@ -172,73 +161,15 @@ namespace Cache
             private readonly object _lock = new object();
 
             public Snapshot Snapshot { get; set; }
-            public Dictionary<string, LastKnowRequest> LastKnownRequests { get; }
+            public Dictionary<int, PendingResponse> PendingResponses { get; }
 
             public object Lock => _lock;
 
             public NodeInfo()
             {
                 Snapshot = null;
-                LastKnownRequests = new Dictionary<string, LastKnowRequest>();
+                PendingResponses = new Dictionary<int, PendingResponse>();
             }
         }
-    }
-
-    public class Snapshot
-    {
-        public Resources Endpoints { get; }
-        public Resources Clusters { get; }
-        public Resources Routes { get; }
-        public Resources Listiners { get; }
-
-        public string GetVersion(string type)
-        {
-            return GetByType(type, e => e.Version);
-        }
-
-        public ImmutableDictionary<string, IMessage> GetResources(string type)
-        {
-            return GetByType(type, e => e.Items);
-        }
-
-        private T GetByType<T>(
-            string type,
-            Func<Resources, T> selector)
-        {
-            switch (type)
-            {
-                case TypeStrings.EndpointType:
-                    return selector(Endpoints);
-                case TypeStrings.ClusterType:
-                    return selector(Clusters);
-                case TypeStrings.RouteType:
-                    return selector(Routes);
-                case TypeStrings.ListenerType:
-                    return selector(Listiners);
-                default:
-                    throw new ArgumentOutOfRangeException(type);
-            }
-        }
-    }
-
-    public class Resources
-    {
-        public string Version { get; }
-        public ImmutableDictionary<string, IMessage> Items { get; }
-
-        public Resources(string version, ImmutableDictionary<string, IMessage> items)
-        {
-            Items = items;
-            Version = version;
-        }
-    }
-
-    public static class TypeStrings
-    {
-        public const string TypePrefix = "type.googleapis.com/envoy.api.v2.";
-        public const string EndpointType = TypePrefix + "ClusterLoadAssignment";
-        public const string ClusterType = TypePrefix + "Cluster";
-        public const string RouteType = TypePrefix + "RouteConfiguration";
-        public const string ListenerType = TypePrefix + "Listener";
     }
 }
