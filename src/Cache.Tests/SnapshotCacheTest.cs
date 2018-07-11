@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Envoy.ControlPlane.Cache.Tests
 {
-    public class UnitTest1
+    public class SnapshotCacheTest
     {
         private DiscoveryRequest ClusterRequest =>
             new DiscoveryRequest() {Node = new Node() {Id = "node1"}, TypeUrl = TypeStrings.ClusterType, VersionInfo = "1"};
@@ -23,10 +23,10 @@ namespace Envoy.ControlPlane.Cache.Tests
         public async Task NoSnapshot_GetResponseForFetch_ReturnsEmpty()
         {
             // Arrange
-            var cache = new SimpleCache();
+            var cache = new SnapshotCache(true);
             
             // Act
-            var result = await cache.GetResponseForFetch(ClusterRequest);
+            var result = await cache.Fetch(ClusterRequest);
             
             // Assert
             Assert.Null(result);
@@ -36,7 +36,7 @@ namespace Envoy.ControlPlane.Cache.Tests
         public void NoSnapshot_GetResponseForStream_ReturnsUnresolvedTask()
         {
             // Arrange
-            var cache = new SimpleCache();
+            var cache = new SnapshotCache(true);
             
             // Act
             var resultTask = cache.CreateWatch(ClusterRequest);
@@ -49,7 +49,7 @@ namespace Envoy.ControlPlane.Cache.Tests
         public async Task Snapshot_GetResponseForStream_ReturnsResolvedTask()
         {
             // Arrange
-            var cache = new SimpleCache();
+            var cache = new SnapshotCache(true);
             cache.SetSnapshot("node1", BuildSnapshot());
             
             // Act
@@ -64,7 +64,7 @@ namespace Envoy.ControlPlane.Cache.Tests
         public async Task NoSnapshotAndGetResponseForStream_SnapshotSet_ResolvedTask()
         {
             // Arrange
-            var cache = new SimpleCache();
+            var cache = new SnapshotCache(true);
             var resultTask = cache.CreateWatch(ClusterRequest).Response;
             
             // Act

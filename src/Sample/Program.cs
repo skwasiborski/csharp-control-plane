@@ -17,15 +17,15 @@ namespace Sample
         public static async Task Main(string[] args)
         {
             var cancelationTokenSource = new CancellationTokenSource();
-            var services = new Services(new SimpleCache(), cancelationTokenSource.Token);
+            var services = new Services(new SnapshotCache(true), cancelationTokenSource.Token);
             Server server = new Server
             {
                 Services =
                 {
-                    ClusterDiscoveryService.BindService(services.ClusterService),
-                    EndpointDiscoveryService.BindService(services.EndpointService),
-                    ListenerDiscoveryService.BindService(services.ListenerService),
-                    RouteDiscoveryService.BindService(services.RouteService),
+//                    ClusterDiscoveryService.BindService(services.ClusterService),
+//                    EndpointDiscoveryService.BindService(services.EndpointService),
+//                    ListenerDiscoveryService.BindService(services.ListenerService),
+//                    RouteDiscoveryService.BindService(services.RouteService),
                     AggregatedDiscoveryService.BindService(services.AggregatedService)
                 },
                 Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
@@ -33,7 +33,7 @@ namespace Sample
             
             server.Start();
 
-            Console.WriteLine($"ClusterDiscoveryService server listening on port {Port.ToString()}");
+            Console.WriteLine($"Server listening on port {Port.ToString()}");
             Console.WriteLine("Press any key to stop the server...");
             Console.ReadKey();
 

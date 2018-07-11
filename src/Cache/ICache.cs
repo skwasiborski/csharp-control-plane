@@ -15,7 +15,7 @@ namespace Envoy.ControlPlane.Cache
         /// <summary>
         /// Returns current values from cache
         /// </summary>
-        ValueTask<DiscoveryResponse> GetResponseForFetch(DiscoveryRequest request);
+        ValueTask<DiscoveryResponse> Fetch(DiscoveryRequest request);
     }
 
     public struct Watch

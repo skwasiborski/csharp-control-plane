@@ -16,12 +16,35 @@ namespace Envoy.ControlPlane.Cache
         void SetSnapshot(string node, Snapshot snapshot);
     }
 
-    public class SimpleCache : ISnapshotCache
+    /// <summary>
+    /// Description taken from go-control-plane (https://github.com/envoyproxy/go-control-plane) snapshot cache.
+    /// All the following considirations apply to this cache.
+    /// 
+    /// SnapshotCache is a snapshot-based cache that maintains a single versioned
+    /// snapshot of responses per node. SnapshotCache consistently replies with the
+    /// latest snapshot. For the protocol to work correctly in ADS mode, EDS/RDS
+    /// requests are responded only when all resources in the snapshot xDS response
+    /// are named as part of the request. It is expected that the CDS response names
+    /// all EDS clusters, and the LDS response names all RDS routes in a snapshot,
+    /// to ensure that Envoy makes the request for all EDS clusters or RDS routes
+    /// eventually.
+    ///
+    /// SnapshotCache can operate as a REST or regular xDS backend. The snapshot
+    /// can be partial, e.g. only include RDS or EDS resources.
+    /// </summary>
+    public class SnapshotCache : ISnapshotCache
     {
+        private readonly bool _adsMode;
+
         private readonly ConcurrentDictionary<string, NodeInfo> _nodeInfos =
             new ConcurrentDictionary<string, NodeInfo>();
 
-        private int _pendingResponseId = 0;
+        private int _watchId = 0;
+
+        public SnapshotCache(bool adsMode)
+        {
+            _adsMode = adsMode;
+        }
         
         public void SetSnapshot(string node, Snapshot snapshot)
         {
@@ -37,11 +60,11 @@ namespace Envoy.ControlPlane.Cache
                     .Where(kv => kv.Value.Request.VersionInfo != snapshot.GetVersion(kv.Value.Request.TypeUrl))
                     .Select(kv => (
                         kv,
-                        CreateResponse(
+                        CreateStreamResponse(
                             kv.Value.Request,
                             snapshot.GetResources(kv.Value.Request.TypeUrl),
                             snapshot.GetVersion(kv.Value.Request.TypeUrl))))
-                    .ToArray(); // force the evaluation in lock
+                    .ToArray();
 
                 foreach (var r in requestsToResolve)
                 {
@@ -51,36 +74,49 @@ namespace Envoy.ControlPlane.Cache
 
             foreach (var request in requestsToResolve)
             {
-                request.pendingResponse.Value.Resolve(request.response);
+                if (request.response != null)
+                {
+                    // Incomplete request in ADS mode. Do not respond.
+                    request.pendingResponse.Value.Resolve(request.response);
+                }
             }
         }
 
         public Watch CreateWatch(DiscoveryRequest request)
         {
-
             var info = _nodeInfos.GetOrAdd(request.Node.Id, id => new NodeInfo());
-
+            ImmutableDictionary<string, IMessage> resources;
+            
             lock (info.Lock)
             {
                 if (info.Snapshot == null || request.VersionInfo == info.Snapshot.GetVersion(request.TypeUrl))
                 {
-                    var watchId = Interlocked.Increment(ref _pendingResponseId);
-                    var currentRequest = new PendingResponse(request);
-                    info.PendingResponses[watchId] = currentRequest;
-                    
+                    var watchId = Interlocked.Increment(ref _watchId);
+                    var pendingResponse = new PendingResponse(request);
+                    info.PendingResponses[watchId] = pendingResponse;
+                
                     return new Watch(
-                        currentRequest.Response, 
-                        () => CancelWatch(request.Node.Id, watchId));
+                        pendingResponse.Response, 
+                        () => CancelWatch(pendingResponse.Request.Node.Id, watchId));
                 }
+
+                resources = info.Snapshot.GetResources(request.TypeUrl);
             }
             
-            var resources = info.Snapshot.GetResources(request.TypeUrl);
-            return new Watch (
-                Task.FromResult(CreateResponse(request, resources, info.Snapshot.GetVersion(request.TypeUrl))), 
+            var response = CreateStreamResponse(request, resources, info.Snapshot.GetVersion(request.TypeUrl));
+
+            if (response == null)
+            {
+                // Incomplete request in ADS mode. Do not respond.
+                return Watch.Empty;
+            }
+
+            return new Watch(
+                Task.FromResult(response),
                 Watch.NoOp);
         }
 
-        public ValueTask<DiscoveryResponse> GetResponseForFetch(DiscoveryRequest request)
+        public ValueTask<DiscoveryResponse> Fetch(DiscoveryRequest request)
         {
             if (!_nodeInfos.TryGetValue(request.Node.Id, out var info) || info.Snapshot == null)
             {
@@ -106,6 +142,23 @@ namespace Envoy.ControlPlane.Cache
             }
         }
 
+        private DiscoveryResponse CreateStreamResponse( 
+            DiscoveryRequest request,
+            ImmutableDictionary<string, IMessage> resources,
+            string version)
+        {
+            if (request.ResourceNames.Count > 0 && 
+                _adsMode &&
+                request.ResourceNames.Intersect(resources.Keys).Count() < resources.Count)
+            {
+                // for ADS, the request names must match the snapshot names
+                // if they do not, then the watch is never responded, and it is expected that envoy makes another request
+                return null;
+            }
+
+            return CreateResponse(request, resources, version);
+        }
+        
         private DiscoveryResponse CreateResponse(
             DiscoveryRequest request,
             ImmutableDictionary<string, IMessage> resources,
@@ -136,21 +189,20 @@ namespace Envoy.ControlPlane.Cache
         private class PendingResponse
         {
             private readonly TaskCompletionSource<DiscoveryResponse> _tcs;
-            private readonly DiscoveryRequest _request;
 
             public Task<DiscoveryResponse> Response => _tcs.Task;
-
-            public DiscoveryRequest Request => _request;
+            public DiscoveryRequest Request { get; }
 
             public PendingResponse(DiscoveryRequest request)
             {
-                _request = request;
+                Request = request;
                 _tcs = new TaskCompletionSource<DiscoveryResponse>(TaskCreationOptions.RunContinuationsAsynchronously);
             }
 
             public void Resolve(DiscoveryResponse response)
             {
-                // using try here because there can be race codition when setting new snapshot and processing new request rom envoy at the same time
+                // using try here because there can be race codition when setting new snapshot
+                // and processing new request from envoy at the same time
                 // regardless who wins the appropriate data will be send.
                 _tcs.TrySetResult(response);
             }
@@ -158,12 +210,10 @@ namespace Envoy.ControlPlane.Cache
 
         private class NodeInfo
         {
-            private readonly object _lock = new object();
-
             public Snapshot Snapshot { get; set; }
             public Dictionary<int, PendingResponse> PendingResponses { get; }
 
-            public object Lock => _lock;
+            public object Lock { get; } = new object();
 
             public NodeInfo()
             {
