@@ -100,6 +100,14 @@ namespace Envoy.Api.V2.Endpoint {
     private global::Envoy.Api.V2.Core.Address address_;
     /// <summary>
     /// The upstream host address.
+    ///
+    /// .. attention::
+    ///
+    ///   The form of host address depends on the given cluster type. For STATIC or EDS,
+    ///   it is expected to be a direct IP address (or something resolvable by the
+    ///   specified :ref:`resolver &lt;envoy_api_field_core.SocketAddress.resolver_name>`
+    ///   in the Address). For LOGICAL or STRICT DNS, it is expected to be hostname,
+    ///   and will be resolved via DNS.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Envoy.Api.V2.Core.Address Address {

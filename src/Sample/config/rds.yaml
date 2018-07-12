@@ -1,0 +1,10 @@
+version_info: "0"
+resources:
+- "@type": type.googleapis.com/envoy.api.v2.RouteConfiguration
+  name: local_route
+  virtual_hosts:
+  - name: local_service
+    domains: ["*"]
+    routes:
+    - match: { prefix: "/" }
+      route: { cluster: some_service }

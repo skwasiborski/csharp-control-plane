@@ -27,23 +27,26 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
             "CitlbnZveS9jb25maWcvZmlsdGVyL2h0dHAvcmJhYy92Mi9yYmFjLnByb3Rv",
             "EiBlbnZveS5jb25maWcuZmlsdGVyLmh0dHAucmJhYy52MhokZW52b3kvY29u",
             "ZmlnL3JiYWMvdjJhbHBoYS9yYmFjLnByb3RvGhd2YWxpZGF0ZS92YWxpZGF0",
-            "ZS5wcm90bxoUZ29nb3Byb3RvL2dvZ28ucHJvdG8iQgoEUkJBQxI6CgVydWxl",
-            "cxgBIAEoCzIfLmVudm95LmNvbmZpZy5yYmFjLnYyYWxwaGEuUkJBQ0IKuunA",
-            "AwWKAQIQASKEAQoMUkJBQ1BlclJvdXRlEh0KCGRpc2FibGVkGAEgASgIQgm6",
-            "6cADBGoCCAFIABJCCgRyYmFjGAIgASgLMiYuZW52b3kuY29uZmlnLmZpbHRl",
-            "ci5odHRwLnJiYWMudjIuUkJBQ0IKuunAAwWKAQIQAUgAQhEKCG92ZXJyaWRl",
-            "EgW46cADAUIEWgJ2MmIGcHJvdG8z"));
+            "ZS5wcm90bxoUZ29nb3Byb3RvL2dvZ28ucHJvdG8ibQoEUkJBQxIuCgVydWxl",
+            "cxgBIAEoCzIfLmVudm95LmNvbmZpZy5yYmFjLnYyYWxwaGEuUkJBQxI1Cgxz",
+            "aGFkb3dfcnVsZXMYAiABKAsyHy5lbnZveS5jb25maWcucmJhYy52MmFscGhh",
+            "LlJCQUMiVAoMUkJBQ1BlclJvdXRlEjQKBHJiYWMYAiABKAsyJi5lbnZveS5j",
+            "b25maWcuZmlsdGVyLmh0dHAucmJhYy52Mi5SQkFDSgQIARACUghkaXNhYmxl",
+            "ZEIEWgJ2MmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Envoy.Config.Rbac.V2Alpha.RbacReflection.Descriptor, global::Validate.ValidateReflection.Descriptor, global::Gogoproto.GogoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Config.Filter.Http.Rbac.V2.RBAC), global::Envoy.Config.Filter.Http.Rbac.V2.RBAC.Parser, new[]{ "Rules" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Config.Filter.Http.Rbac.V2.RBACPerRoute), global::Envoy.Config.Filter.Http.Rbac.V2.RBACPerRoute.Parser, new[]{ "Disabled", "Rbac" }, new[]{ "Override" }, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Config.Filter.Http.Rbac.V2.RBAC), global::Envoy.Config.Filter.Http.Rbac.V2.RBAC.Parser, new[]{ "Rules", "ShadowRules" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Config.Filter.Http.Rbac.V2.RBACPerRoute), global::Envoy.Config.Filter.Http.Rbac.V2.RBACPerRoute.Parser, new[]{ "Rbac" }, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
+  /// <summary>
+  /// RBAC filter config.
+  /// </summary>
   public sealed partial class RBAC : pb::IMessage<RBAC> {
     private static readonly pb::MessageParser<RBAC> _parser = new pb::MessageParser<RBAC>(() => new RBAC());
     private pb::UnknownFieldSet _unknownFields;
@@ -70,6 +73,7 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public RBAC(RBAC other) : this() {
       Rules = other.rules_ != null ? other.Rules.Clone() : null;
+      ShadowRules = other.shadowRules_ != null ? other.ShadowRules.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,13 +86,30 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
     public const int RulesFieldNumber = 1;
     private global::Envoy.Config.Rbac.V2Alpha.RBAC rules_;
     /// <summary>
-    /// Specify the RBAC rules to be applied globally
+    /// Specify the RBAC rules to be applied globally.
+    /// If absent, no enforcing RBAC policy will be applied.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Envoy.Config.Rbac.V2Alpha.RBAC Rules {
       get { return rules_; }
       set {
         rules_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "shadow_rules" field.</summary>
+    public const int ShadowRulesFieldNumber = 2;
+    private global::Envoy.Config.Rbac.V2Alpha.RBAC shadowRules_;
+    /// <summary>
+    /// Shadow rules are not enforced by the filter (i.e., returning a 403)
+    /// but will emit stats and logs and can be used for rule testing.
+    /// If absent, no shadow RBAC policy with be applied.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Envoy.Config.Rbac.V2Alpha.RBAC ShadowRules {
+      get { return shadowRules_; }
+      set {
+        shadowRules_ = value;
       }
     }
 
@@ -106,6 +127,7 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
         return true;
       }
       if (!object.Equals(Rules, other.Rules)) return false;
+      if (!object.Equals(ShadowRules, other.ShadowRules)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -113,6 +135,7 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
     public override int GetHashCode() {
       int hash = 1;
       if (rules_ != null) hash ^= Rules.GetHashCode();
+      if (shadowRules_ != null) hash ^= ShadowRules.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -130,6 +153,10 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
         output.WriteRawTag(10);
         output.WriteMessage(Rules);
       }
+      if (shadowRules_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(ShadowRules);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -140,6 +167,9 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
       int size = 0;
       if (rules_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rules);
+      }
+      if (shadowRules_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ShadowRules);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -158,6 +188,12 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
         }
         Rules.MergeFrom(other.Rules);
       }
+      if (other.shadowRules_ != null) {
+        if (shadowRules_ == null) {
+          shadowRules_ = new global::Envoy.Config.Rbac.V2Alpha.RBAC();
+        }
+        ShadowRules.MergeFrom(other.ShadowRules);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -174,6 +210,13 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
               rules_ = new global::Envoy.Config.Rbac.V2Alpha.RBAC();
             }
             input.ReadMessage(rules_);
+            break;
+          }
+          case 18: {
+            if (shadowRules_ == null) {
+              shadowRules_ = new global::Envoy.Config.Rbac.V2Alpha.RBAC();
+            }
+            input.ReadMessage(shadowRules_);
             break;
           }
         }
@@ -207,15 +250,7 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public RBACPerRoute(RBACPerRoute other) : this() {
-      switch (other.OverrideCase) {
-        case OverrideOneofCase.Disabled:
-          Disabled = other.Disabled;
-          break;
-        case OverrideOneofCase.Rbac:
-          Rbac = other.Rbac.Clone();
-          break;
-      }
-
+      Rbac = other.rbac_ != null ? other.Rbac.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -224,51 +259,19 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
       return new RBACPerRoute(this);
     }
 
-    /// <summary>Field number for the "disabled" field.</summary>
-    public const int DisabledFieldNumber = 1;
-    /// <summary>
-    /// Disable the filter for this particular vhost or route.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Disabled {
-      get { return overrideCase_ == OverrideOneofCase.Disabled ? (bool) override_ : false; }
-      set {
-        override_ = value;
-        overrideCase_ = OverrideOneofCase.Disabled;
-      }
-    }
-
     /// <summary>Field number for the "rbac" field.</summary>
     public const int RbacFieldNumber = 2;
+    private global::Envoy.Config.Filter.Http.Rbac.V2.RBAC rbac_;
     /// <summary>
     /// Override the global configuration of the filter with this new config.
+    /// If absent, the global RBAC policy will be disabled for this route.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Envoy.Config.Filter.Http.Rbac.V2.RBAC Rbac {
-      get { return overrideCase_ == OverrideOneofCase.Rbac ? (global::Envoy.Config.Filter.Http.Rbac.V2.RBAC) override_ : null; }
+      get { return rbac_; }
       set {
-        override_ = value;
-        overrideCase_ = value == null ? OverrideOneofCase.None : OverrideOneofCase.Rbac;
+        rbac_ = value;
       }
-    }
-
-    private object override_;
-    /// <summary>Enum of possible cases for the "override" oneof.</summary>
-    public enum OverrideOneofCase {
-      None = 0,
-      Disabled = 1,
-      Rbac = 2,
-    }
-    private OverrideOneofCase overrideCase_ = OverrideOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public OverrideOneofCase OverrideCase {
-      get { return overrideCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearOverride() {
-      overrideCase_ = OverrideOneofCase.None;
-      override_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -284,18 +287,14 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Disabled != other.Disabled) return false;
       if (!object.Equals(Rbac, other.Rbac)) return false;
-      if (OverrideCase != other.OverrideCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (overrideCase_ == OverrideOneofCase.Disabled) hash ^= Disabled.GetHashCode();
-      if (overrideCase_ == OverrideOneofCase.Rbac) hash ^= Rbac.GetHashCode();
-      hash ^= (int) overrideCase_;
+      if (rbac_ != null) hash ^= Rbac.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -309,11 +308,7 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (overrideCase_ == OverrideOneofCase.Disabled) {
-        output.WriteRawTag(8);
-        output.WriteBool(Disabled);
-      }
-      if (overrideCase_ == OverrideOneofCase.Rbac) {
+      if (rbac_ != null) {
         output.WriteRawTag(18);
         output.WriteMessage(Rbac);
       }
@@ -325,10 +320,7 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (overrideCase_ == OverrideOneofCase.Disabled) {
-        size += 1 + 1;
-      }
-      if (overrideCase_ == OverrideOneofCase.Rbac) {
+      if (rbac_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rbac);
       }
       if (_unknownFields != null) {
@@ -342,18 +334,12 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
       if (other == null) {
         return;
       }
-      switch (other.OverrideCase) {
-        case OverrideOneofCase.Disabled:
-          Disabled = other.Disabled;
-          break;
-        case OverrideOneofCase.Rbac:
-          if (Rbac == null) {
-            Rbac = new global::Envoy.Config.Filter.Http.Rbac.V2.RBAC();
-          }
-          Rbac.MergeFrom(other.Rbac);
-          break;
+      if (other.rbac_ != null) {
+        if (rbac_ == null) {
+          rbac_ = new global::Envoy.Config.Filter.Http.Rbac.V2.RBAC();
+        }
+        Rbac.MergeFrom(other.Rbac);
       }
-
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -365,17 +351,11 @@ namespace Envoy.Config.Filter.Http.Rbac.V2 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            Disabled = input.ReadBool();
-            break;
-          }
           case 18: {
-            global::Envoy.Config.Filter.Http.Rbac.V2.RBAC subBuilder = new global::Envoy.Config.Filter.Http.Rbac.V2.RBAC();
-            if (overrideCase_ == OverrideOneofCase.Rbac) {
-              subBuilder.MergeFrom(Rbac);
+            if (rbac_ == null) {
+              rbac_ = new global::Envoy.Config.Filter.Http.Rbac.V2.RBAC();
             }
-            input.ReadMessage(subBuilder);
-            Rbac = subBuilder;
+            input.ReadMessage(rbac_);
             break;
           }
         }

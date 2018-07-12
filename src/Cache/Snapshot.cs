@@ -6,6 +6,11 @@ namespace Envoy.ControlPlane.Cache
 {
     public class Snapshot
     {
+        public Resources Endpoints { get; }
+        public Resources Clusters { get; }
+        public Resources Routes { get; }
+        public Resources Listiners { get; }
+
         public Snapshot(Resources endpoints, Resources clusters, Resources routes, Resources listiners)
         {
             Endpoints = endpoints;
@@ -13,11 +18,11 @@ namespace Envoy.ControlPlane.Cache
             Routes = routes;
             Listiners = listiners;
         }
-
-        public Resources Endpoints { get; }
-        public Resources Clusters { get; }
-        public Resources Routes { get; }
-        public Resources Listiners { get; }
+        
+        public Snapshot WithEndpoints(Resources endpoints) => new Snapshot(endpoints, Clusters, Routes, Listiners);
+        public Snapshot WithClusters(Resources clusters) => new Snapshot(Endpoints, clusters, Routes, Listiners);
+        public Snapshot WithRoutes(Resources routes) => new Snapshot(Endpoints, Clusters, routes, Listiners);
+        public Snapshot WithListiners(Resources listiners) => new Snapshot(Endpoints, Clusters, Routes, listiners);
 
         public string GetVersion(string type)
         {

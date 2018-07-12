@@ -162,8 +162,8 @@ namespace Envoy.Service.Auth.V2Alpha {
     /// <summary>
     /// This is analogous to http_request.headers, however these contents will not be sent to the
     /// upstream server. Context_extensions provide an extension mechanism for sending additional
-    /// information to the auth server without modifying the proto definition. It maps to the internal
-    /// opaque context in the filter chain.
+    /// information to the auth server without modifying the proto definition. It maps to the
+    /// internal opaque context in the filter chain.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::MapField<string, string> ContextExtensions {

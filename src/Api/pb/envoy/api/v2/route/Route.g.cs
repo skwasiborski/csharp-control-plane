@@ -85,7 +85,7 @@ namespace Envoy.Api.V2.Route {
             "aGVhZGVycxgDIAEoCRIWCg5leHBvc2VfaGVhZGVycxgEIAEoCRIPCgdtYXhf",
             "YWdlGAUgASgJEjUKEWFsbG93X2NyZWRlbnRpYWxzGAYgASgLMhouZ29vZ2xl",
             "LnByb3RvYnVmLkJvb2xWYWx1ZRIrCgdlbmFibGVkGAcgASgLMhouZ29vZ2xl",
-            "LnByb3RvYnVmLkJvb2xWYWx1ZSL4EAoLUm91dGVBY3Rpb24SEQoHY2x1c3Rl",
+            "LnByb3RvYnVmLkJvb2xWYWx1ZSKzEQoLUm91dGVBY3Rpb24SEQoHY2x1c3Rl",
             "chgBIAEoCUgAEhgKDmNsdXN0ZXJfaGVhZGVyGAIgASgJSAASQAoRd2VpZ2h0",
             "ZWRfY2x1c3RlcnMYAyABKAsyIy5lbnZveS5hcGkudjIucm91dGUuV2VpZ2h0",
             "ZWRDbHVzdGVySAAScAofY2x1c3Rlcl9ub3RfZm91bmRfcmVzcG9uc2VfY29k",
@@ -111,76 +111,78 @@ namespace Envoy.Api.V2.Route {
             "d2Vic29ja2V0GBAgASgLMhouZ29vZ2xlLnByb3RvYnVmLkJvb2xWYWx1ZRJO",
             "ChB3ZWJzb2NrZXRfY29uZmlnGBYgASgLMjQuZW52b3kuYXBpLnYyLnJvdXRl",
             "LlJvdXRlQWN0aW9uLldlYlNvY2tldFByb3h5Q29uZmlnEiwKBGNvcnMYESAB",
-            "KAsyHi5lbnZveS5hcGkudjIucm91dGUuQ29yc1BvbGljeRqMAQoLUmV0cnlQ",
-            "b2xpY3kSEAoIcmV0cnlfb24YASABKAkSMQoLbnVtX3JldHJpZXMYAiABKAsy",
-            "HC5nb29nbGUucHJvdG9idWYuVUludDMyVmFsdWUSOAoPcGVyX3RyeV90aW1l",
-            "b3V0GAMgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uQgSY3x8BGkYK",
-            "E1JlcXVlc3RNaXJyb3JQb2xpY3kSGgoHY2x1c3RlchgBIAEoCUIJuunAAwRy",
-            "AiABEhMKC3J1bnRpbWVfa2V5GAIgASgJGscDCgpIYXNoUG9saWN5EkMKBmhl",
-            "YWRlchgBIAEoCzIxLmVudm95LmFwaS52Mi5yb3V0ZS5Sb3V0ZUFjdGlvbi5I",
-            "YXNoUG9saWN5LkhlYWRlckgAEkMKBmNvb2tpZRgCIAEoCzIxLmVudm95LmFw",
-            "aS52Mi5yb3V0ZS5Sb3V0ZUFjdGlvbi5IYXNoUG9saWN5LkNvb2tpZUgAEmAK",
-            "FWNvbm5lY3Rpb25fcHJvcGVydGllcxgDIAEoCzI/LmVudm95LmFwaS52Mi5y",
-            "b3V0ZS5Sb3V0ZUFjdGlvbi5IYXNoUG9saWN5LkNvbm5lY3Rpb25Qcm9wZXJ0",
-            "aWVzSAAaKAoGSGVhZGVyEh4KC2hlYWRlcl9uYW1lGAEgASgJQgm66cADBHIC",
-            "IAEaXQoGQ29va2llEhcKBG5hbWUYASABKAlCCbrpwAMEcgIgARIsCgN0dGwY",
-            "AiABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25CBJjfHwESDAoEcGF0",
-            "aBgDIAEoCRopChRDb25uZWN0aW9uUHJvcGVydGllcxIRCglzb3VyY2VfaXAY",
-            "ASABKAhCGQoQcG9saWN5X3NwZWNpZmllchIFuOnAAwEaswEKFFdlYlNvY2tl",
-            "dFByb3h5Q29uZmlnEhMKC3N0YXRfcHJlZml4GAEgASgJEj8KDGlkbGVfdGlt",
-            "ZW91dBgCIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvbkIOuunAAwWq",
-            "AQIqAJjfHwESRQoUbWF4X2Nvbm5lY3RfYXR0ZW1wdHMYAyABKAsyHC5nb29n",
-            "bGUucHJvdG9idWYuVUludDMyVmFsdWVCCbrpwAMEKgIoASJFChtDbHVzdGVy",
-            "Tm90Rm91bmRSZXNwb25zZUNvZGUSFwoTU0VSVklDRV9VTkFWQUlMQUJMRRAA",
-            "Eg0KCU5PVF9GT1VORBABQhoKEWNsdXN0ZXJfc3BlY2lmaWVyEgW46cADAUIY",
-            "ChZob3N0X3Jld3JpdGVfc3BlY2lmaWVySgQIFRAWIvYCCg5SZWRpcmVjdEFj",
-            "dGlvbhIVCg1ob3N0X3JlZGlyZWN0GAEgASgJEhcKDXBhdGhfcmVkaXJlY3QY",
-            "AiABKAlIABIYCg5wcmVmaXhfcmV3cml0ZRgFIAEoCUgAEloKDXJlc3BvbnNl",
-            "X2NvZGUYAyABKA4yNy5lbnZveS5hcGkudjIucm91dGUuUmVkaXJlY3RBY3Rp",
-            "b24uUmVkaXJlY3RSZXNwb25zZUNvZGVCCrrpwAMFggECEAESFgoOaHR0cHNf",
-            "cmVkaXJlY3QYBCABKAgSEwoLc3RyaXBfcXVlcnkYBiABKAgidwoUUmVkaXJl",
-            "Y3RSZXNwb25zZUNvZGUSFQoRTU9WRURfUEVSTUFORU5UTFkQABIJCgVGT1VO",
-            "RBABEg0KCVNFRV9PVEhFUhACEhYKElRFTVBPUkFSWV9SRURJUkVDVBADEhYK",
-            "ElBFUk1BTkVOVF9SRURJUkVDVBAEQhgKFnBhdGhfcmV3cml0ZV9zcGVjaWZp",
-            "ZXIiYQoURGlyZWN0UmVzcG9uc2VBY3Rpb24SHAoGc3RhdHVzGAEgASgNQgy6",
-            "6cADByoFENgEKGQSKwoEYm9keRgCIAEoCzIdLmVudm95LmFwaS52Mi5jb3Jl",
-            "LkRhdGFTb3VyY2UiKQoJRGVjb3JhdG9yEhwKCW9wZXJhdGlvbhgBIAEoCUIJ",
-            "uunAAwRyAiABIncKDlZpcnR1YWxDbHVzdGVyEhoKB3BhdHRlcm4YASABKAlC",
-            "CbrpwAMEcgIgARIXCgRuYW1lGAIgASgJQgm66cADBHICIAESMAoGbWV0aG9k",
-            "GAMgASgOMiAuZW52b3kuYXBpLnYyLmNvcmUuUmVxdWVzdE1ldGhvZCKOCAoJ",
-            "UmF0ZUxpbWl0EjYKBXN0YWdlGAEgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlVJ",
-            "bnQzMlZhbHVlQgm66cADBCoCGAoSEwoLZGlzYWJsZV9rZXkYAiABKAkSQQoH",
-            "YWN0aW9ucxgDIAMoCzIkLmVudm95LmFwaS52Mi5yb3V0ZS5SYXRlTGltaXQu",
-            "QWN0aW9uQgq66cADBZIBAggBGvAGCgZBY3Rpb24STAoOc291cmNlX2NsdXN0",
-            "ZXIYASABKAsyMi5lbnZveS5hcGkudjIucm91dGUuUmF0ZUxpbWl0LkFjdGlv",
-            "bi5Tb3VyY2VDbHVzdGVySAASVgoTZGVzdGluYXRpb25fY2x1c3RlchgCIAEo",
-            "CzI3LmVudm95LmFwaS52Mi5yb3V0ZS5SYXRlTGltaXQuQWN0aW9uLkRlc3Rp",
-            "bmF0aW9uQ2x1c3RlckgAEk4KD3JlcXVlc3RfaGVhZGVycxgDIAEoCzIzLmVu",
-            "dm95LmFwaS52Mi5yb3V0ZS5SYXRlTGltaXQuQWN0aW9uLlJlcXVlc3RIZWFk",
-            "ZXJzSAASTAoOcmVtb3RlX2FkZHJlc3MYBCABKAsyMi5lbnZveS5hcGkudjIu",
-            "cm91dGUuUmF0ZUxpbWl0LkFjdGlvbi5SZW1vdGVBZGRyZXNzSAASRgoLZ2Vu",
-            "ZXJpY19rZXkYBSABKAsyLy5lbnZveS5hcGkudjIucm91dGUuUmF0ZUxpbWl0",
-            "LkFjdGlvbi5HZW5lcmljS2V5SAASUwoSaGVhZGVyX3ZhbHVlX21hdGNoGAYg",
-            "ASgLMjUuZW52b3kuYXBpLnYyLnJvdXRlLlJhdGVMaW1pdC5BY3Rpb24uSGVh",
-            "ZGVyVmFsdWVNYXRjaEgAGg8KDVNvdXJjZUNsdXN0ZXIaFAoSRGVzdGluYXRp",
-            "b25DbHVzdGVyGlMKDlJlcXVlc3RIZWFkZXJzEh4KC2hlYWRlcl9uYW1lGAEg",
-            "ASgJQgm66cADBHICIAESIQoOZGVzY3JpcHRvcl9rZXkYAiABKAlCCbrpwAME",
-            "cgIgARoPCg1SZW1vdGVBZGRyZXNzGjEKCkdlbmVyaWNLZXkSIwoQZGVzY3Jp",
-            "cHRvcl92YWx1ZRgBIAEoCUIJuunAAwRyAiABGqkBChBIZWFkZXJWYWx1ZU1h",
-            "dGNoEiMKEGRlc2NyaXB0b3JfdmFsdWUYASABKAlCCbrpwAMEcgIgARIwCgxl",
-            "eHBlY3RfbWF0Y2gYAiABKAsyGi5nb29nbGUucHJvdG9idWYuQm9vbFZhbHVl",
-            "Ej4KB2hlYWRlcnMYAyADKAsyIS5lbnZveS5hcGkudjIucm91dGUuSGVhZGVy",
-            "TWF0Y2hlckIKuunAAwWSAQIIAUIZChBhY3Rpb25fc3BlY2lmaWVyEgW46cAD",
-            "ASKQAgoNSGVhZGVyTWF0Y2hlchIXCgRuYW1lGAEgASgJQgm66cADBHICIAES",
-            "EQoFdmFsdWUYAiABKAlCAhgBEi0KBXJlZ2V4GAMgASgLMhouZ29vZ2xlLnBy",
-            "b3RvYnVmLkJvb2xWYWx1ZUICGAESFQoLZXhhY3RfbWF0Y2gYBCABKAlIABIV",
-            "CgtyZWdleF9tYXRjaBgFIAEoCUgAEi0KC3JhbmdlX21hdGNoGAYgASgLMhYu",
-            "ZW52b3kudHlwZS5JbnQ2NFJhbmdlSAASFwoNcHJlc2VudF9tYXRjaBgHIAEo",
-            "CEgAEhQKDGludmVydF9tYXRjaBgIIAEoCEIYChZoZWFkZXJfbWF0Y2hfc3Bl",
-            "Y2lmaWVyImoKFVF1ZXJ5UGFyYW1ldGVyTWF0Y2hlchIXCgRuYW1lGAEgASgJ",
-            "Qgm66cADBHICIAESDQoFdmFsdWUYAyABKAkSKQoFcmVnZXgYBCABKAsyGi5n",
-            "b29nbGUucHJvdG9idWYuQm9vbFZhbHVlQg5aBXJvdXRliAEBqOIeAWIGcHJv",
-            "dG8z"));
+            "KAsyHi5lbnZveS5hcGkudjIucm91dGUuQ29yc1BvbGljeRI5ChBtYXhfZ3Jw",
+            "Y190aW1lb3V0GBcgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uQgSY",
+            "3x8BGowBCgtSZXRyeVBvbGljeRIQCghyZXRyeV9vbhgBIAEoCRIxCgtudW1f",
+            "cmV0cmllcxgCIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5VSW50MzJWYWx1ZRI4",
+            "Cg9wZXJfdHJ5X3RpbWVvdXQYAyABKAsyGS5nb29nbGUucHJvdG9idWYuRHVy",
+            "YXRpb25CBJjfHwEaRgoTUmVxdWVzdE1pcnJvclBvbGljeRIaCgdjbHVzdGVy",
+            "GAEgASgJQgm66cADBHICIAESEwoLcnVudGltZV9rZXkYAiABKAkaxwMKCkhh",
+            "c2hQb2xpY3kSQwoGaGVhZGVyGAEgASgLMjEuZW52b3kuYXBpLnYyLnJvdXRl",
+            "LlJvdXRlQWN0aW9uLkhhc2hQb2xpY3kuSGVhZGVySAASQwoGY29va2llGAIg",
+            "ASgLMjEuZW52b3kuYXBpLnYyLnJvdXRlLlJvdXRlQWN0aW9uLkhhc2hQb2xp",
+            "Y3kuQ29va2llSAASYAoVY29ubmVjdGlvbl9wcm9wZXJ0aWVzGAMgASgLMj8u",
+            "ZW52b3kuYXBpLnYyLnJvdXRlLlJvdXRlQWN0aW9uLkhhc2hQb2xpY3kuQ29u",
+            "bmVjdGlvblByb3BlcnRpZXNIABooCgZIZWFkZXISHgoLaGVhZGVyX25hbWUY",
+            "ASABKAlCCbrpwAMEcgIgARpdCgZDb29raWUSFwoEbmFtZRgBIAEoCUIJuunA",
+            "AwRyAiABEiwKA3R0bBgCIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlv",
+            "bkIEmN8fARIMCgRwYXRoGAMgASgJGikKFENvbm5lY3Rpb25Qcm9wZXJ0aWVz",
+            "EhEKCXNvdXJjZV9pcBgBIAEoCEIZChBwb2xpY3lfc3BlY2lmaWVyEgW46cAD",
+            "ARqzAQoUV2ViU29ja2V0UHJveHlDb25maWcSEwoLc3RhdF9wcmVmaXgYASAB",
+            "KAkSPwoMaWRsZV90aW1lb3V0GAIgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1",
+            "cmF0aW9uQg666cADBaoBAioAmN8fARJFChRtYXhfY29ubmVjdF9hdHRlbXB0",
+            "cxgDIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5VSW50MzJWYWx1ZUIJuunAAwQq",
+            "AigBIkUKG0NsdXN0ZXJOb3RGb3VuZFJlc3BvbnNlQ29kZRIXChNTRVJWSUNF",
+            "X1VOQVZBSUxBQkxFEAASDQoJTk9UX0ZPVU5EEAFCGgoRY2x1c3Rlcl9zcGVj",
+            "aWZpZXISBbjpwAMBQhgKFmhvc3RfcmV3cml0ZV9zcGVjaWZpZXJKBAgVEBYi",
+            "9gIKDlJlZGlyZWN0QWN0aW9uEhUKDWhvc3RfcmVkaXJlY3QYASABKAkSFwoN",
+            "cGF0aF9yZWRpcmVjdBgCIAEoCUgAEhgKDnByZWZpeF9yZXdyaXRlGAUgASgJ",
+            "SAASWgoNcmVzcG9uc2VfY29kZRgDIAEoDjI3LmVudm95LmFwaS52Mi5yb3V0",
+            "ZS5SZWRpcmVjdEFjdGlvbi5SZWRpcmVjdFJlc3BvbnNlQ29kZUIKuunAAwWC",
+            "AQIQARIWCg5odHRwc19yZWRpcmVjdBgEIAEoCBITCgtzdHJpcF9xdWVyeRgG",
+            "IAEoCCJ3ChRSZWRpcmVjdFJlc3BvbnNlQ29kZRIVChFNT1ZFRF9QRVJNQU5F",
+            "TlRMWRAAEgkKBUZPVU5EEAESDQoJU0VFX09USEVSEAISFgoSVEVNUE9SQVJZ",
+            "X1JFRElSRUNUEAMSFgoSUEVSTUFORU5UX1JFRElSRUNUEARCGAoWcGF0aF9y",
+            "ZXdyaXRlX3NwZWNpZmllciJhChREaXJlY3RSZXNwb25zZUFjdGlvbhIcCgZz",
+            "dGF0dXMYASABKA1CDLrpwAMHKgUQ2AQoZBIrCgRib2R5GAIgASgLMh0uZW52",
+            "b3kuYXBpLnYyLmNvcmUuRGF0YVNvdXJjZSIpCglEZWNvcmF0b3ISHAoJb3Bl",
+            "cmF0aW9uGAEgASgJQgm66cADBHICIAEidwoOVmlydHVhbENsdXN0ZXISGgoH",
+            "cGF0dGVybhgBIAEoCUIJuunAAwRyAiABEhcKBG5hbWUYAiABKAlCCbrpwAME",
+            "cgIgARIwCgZtZXRob2QYAyABKA4yIC5lbnZveS5hcGkudjIuY29yZS5SZXF1",
+            "ZXN0TWV0aG9kIo4ICglSYXRlTGltaXQSNgoFc3RhZ2UYASABKAsyHC5nb29n",
+            "bGUucHJvdG9idWYuVUludDMyVmFsdWVCCbrpwAMEKgIYChITCgtkaXNhYmxl",
+            "X2tleRgCIAEoCRJBCgdhY3Rpb25zGAMgAygLMiQuZW52b3kuYXBpLnYyLnJv",
+            "dXRlLlJhdGVMaW1pdC5BY3Rpb25CCrrpwAMFkgECCAEa8AYKBkFjdGlvbhJM",
+            "Cg5zb3VyY2VfY2x1c3RlchgBIAEoCzIyLmVudm95LmFwaS52Mi5yb3V0ZS5S",
+            "YXRlTGltaXQuQWN0aW9uLlNvdXJjZUNsdXN0ZXJIABJWChNkZXN0aW5hdGlv",
+            "bl9jbHVzdGVyGAIgASgLMjcuZW52b3kuYXBpLnYyLnJvdXRlLlJhdGVMaW1p",
+            "dC5BY3Rpb24uRGVzdGluYXRpb25DbHVzdGVySAASTgoPcmVxdWVzdF9oZWFk",
+            "ZXJzGAMgASgLMjMuZW52b3kuYXBpLnYyLnJvdXRlLlJhdGVMaW1pdC5BY3Rp",
+            "b24uUmVxdWVzdEhlYWRlcnNIABJMCg5yZW1vdGVfYWRkcmVzcxgEIAEoCzIy",
+            "LmVudm95LmFwaS52Mi5yb3V0ZS5SYXRlTGltaXQuQWN0aW9uLlJlbW90ZUFk",
+            "ZHJlc3NIABJGCgtnZW5lcmljX2tleRgFIAEoCzIvLmVudm95LmFwaS52Mi5y",
+            "b3V0ZS5SYXRlTGltaXQuQWN0aW9uLkdlbmVyaWNLZXlIABJTChJoZWFkZXJf",
+            "dmFsdWVfbWF0Y2gYBiABKAsyNS5lbnZveS5hcGkudjIucm91dGUuUmF0ZUxp",
+            "bWl0LkFjdGlvbi5IZWFkZXJWYWx1ZU1hdGNoSAAaDwoNU291cmNlQ2x1c3Rl",
+            "choUChJEZXN0aW5hdGlvbkNsdXN0ZXIaUwoOUmVxdWVzdEhlYWRlcnMSHgoL",
+            "aGVhZGVyX25hbWUYASABKAlCCbrpwAMEcgIgARIhCg5kZXNjcmlwdG9yX2tl",
+            "eRgCIAEoCUIJuunAAwRyAiABGg8KDVJlbW90ZUFkZHJlc3MaMQoKR2VuZXJp",
+            "Y0tleRIjChBkZXNjcmlwdG9yX3ZhbHVlGAEgASgJQgm66cADBHICIAEaqQEK",
+            "EEhlYWRlclZhbHVlTWF0Y2gSIwoQZGVzY3JpcHRvcl92YWx1ZRgBIAEoCUIJ",
+            "uunAAwRyAiABEjAKDGV4cGVjdF9tYXRjaBgCIAEoCzIaLmdvb2dsZS5wcm90",
+            "b2J1Zi5Cb29sVmFsdWUSPgoHaGVhZGVycxgDIAMoCzIhLmVudm95LmFwaS52",
+            "Mi5yb3V0ZS5IZWFkZXJNYXRjaGVyQgq66cADBZIBAggBQhkKEGFjdGlvbl9z",
+            "cGVjaWZpZXISBbjpwAMBItYCCg1IZWFkZXJNYXRjaGVyEhcKBG5hbWUYASAB",
+            "KAlCCbrpwAMEcgIgARIRCgV2YWx1ZRgCIAEoCUICGAESLQoFcmVnZXgYAyAB",
+            "KAsyGi5nb29nbGUucHJvdG9idWYuQm9vbFZhbHVlQgIYARIVCgtleGFjdF9t",
+            "YXRjaBgEIAEoCUgAEhUKC3JlZ2V4X21hdGNoGAUgASgJSAASLQoLcmFuZ2Vf",
+            "bWF0Y2gYBiABKAsyFi5lbnZveS50eXBlLkludDY0UmFuZ2VIABIXCg1wcmVz",
+            "ZW50X21hdGNoGAcgASgISAASIQoMcHJlZml4X21hdGNoGAkgASgJQgm66cAD",
+            "BHICIAFIABIhCgxzdWZmaXhfbWF0Y2gYCiABKAlCCbrpwAMEcgIgAUgAEhQK",
+            "DGludmVydF9tYXRjaBgIIAEoCEIYChZoZWFkZXJfbWF0Y2hfc3BlY2lmaWVy",
+            "ImoKFVF1ZXJ5UGFyYW1ldGVyTWF0Y2hlchIXCgRuYW1lGAEgASgJQgm66cAD",
+            "BHICIAESDQoFdmFsdWUYAyABKAkSKQoFcmVnZXgYBCABKAsyGi5nb29nbGUu",
+            "cHJvdG9idWYuQm9vbFZhbHVlQg5aBXJvdXRliAEBqOIeAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Envoy.Api.V2.Core.BaseReflection.Descriptor, global::Envoy.Type.RangeReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Validate.ValidateReflection.Descriptor, global::Gogoproto.GogoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -189,7 +191,7 @@ namespace Envoy.Api.V2.Route {
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.WeightedCluster), global::Envoy.Api.V2.Route.WeightedCluster.Parser, new[]{ "Clusters", "TotalWeight", "RuntimeKeyPrefix" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.WeightedCluster.Types.ClusterWeight), global::Envoy.Api.V2.Route.WeightedCluster.Types.ClusterWeight.Parser, new[]{ "Name", "Weight", "MetadataMatch", "RequestHeadersToAdd", "ResponseHeadersToAdd", "ResponseHeadersToRemove", "PerFilterConfig" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, })}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RouteMatch), global::Envoy.Api.V2.Route.RouteMatch.Parser, new[]{ "Prefix", "Path", "Regex", "CaseSensitive", "Runtime", "Headers", "QueryParameters" }, new[]{ "PathSpecifier" }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.CorsPolicy), global::Envoy.Api.V2.Route.CorsPolicy.Parser, new[]{ "AllowOrigin", "AllowMethods", "AllowHeaders", "ExposeHeaders", "MaxAge", "AllowCredentials", "Enabled" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RouteAction), global::Envoy.Api.V2.Route.RouteAction.Parser, new[]{ "Cluster", "ClusterHeader", "WeightedClusters", "ClusterNotFoundResponseCode", "MetadataMatch", "PrefixRewrite", "HostRewrite", "AutoHostRewrite", "Timeout", "RetryPolicy", "RequestMirrorPolicy", "Priority", "RequestHeadersToAdd", "ResponseHeadersToAdd", "ResponseHeadersToRemove", "RateLimits", "IncludeVhRateLimits", "HashPolicy", "UseWebsocket", "WebsocketConfig", "Cors" }, new[]{ "ClusterSpecifier", "HostRewriteSpecifier" }, new[]{ typeof(global::Envoy.Api.V2.Route.RouteAction.Types.ClusterNotFoundResponseCode) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RouteAction.Types.RetryPolicy), global::Envoy.Api.V2.Route.RouteAction.Types.RetryPolicy.Parser, new[]{ "RetryOn", "NumRetries", "PerTryTimeout" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RouteAction), global::Envoy.Api.V2.Route.RouteAction.Parser, new[]{ "Cluster", "ClusterHeader", "WeightedClusters", "ClusterNotFoundResponseCode", "MetadataMatch", "PrefixRewrite", "HostRewrite", "AutoHostRewrite", "Timeout", "RetryPolicy", "RequestMirrorPolicy", "Priority", "RequestHeadersToAdd", "ResponseHeadersToAdd", "ResponseHeadersToRemove", "RateLimits", "IncludeVhRateLimits", "HashPolicy", "UseWebsocket", "WebsocketConfig", "Cors", "MaxGrpcTimeout" }, new[]{ "ClusterSpecifier", "HostRewriteSpecifier" }, new[]{ typeof(global::Envoy.Api.V2.Route.RouteAction.Types.ClusterNotFoundResponseCode) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RouteAction.Types.RetryPolicy), global::Envoy.Api.V2.Route.RouteAction.Types.RetryPolicy.Parser, new[]{ "RetryOn", "NumRetries", "PerTryTimeout" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RouteAction.Types.RequestMirrorPolicy), global::Envoy.Api.V2.Route.RouteAction.Types.RequestMirrorPolicy.Parser, new[]{ "Cluster", "RuntimeKey" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RouteAction.Types.HashPolicy), global::Envoy.Api.V2.Route.RouteAction.Types.HashPolicy.Parser, new[]{ "Header", "Cookie", "ConnectionProperties" }, new[]{ "PolicySpecifier" }, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RouteAction.Types.HashPolicy.Types.Header), global::Envoy.Api.V2.Route.RouteAction.Types.HashPolicy.Types.Header.Parser, new[]{ "HeaderName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RouteAction.Types.HashPolicy.Types.Cookie), global::Envoy.Api.V2.Route.RouteAction.Types.HashPolicy.Types.Cookie.Parser, new[]{ "Name", "Ttl", "Path" }, null, null, null),
@@ -205,7 +207,7 @@ namespace Envoy.Api.V2.Route {
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RateLimit.Types.Action.Types.RemoteAddress), global::Envoy.Api.V2.Route.RateLimit.Types.Action.Types.RemoteAddress.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RateLimit.Types.Action.Types.GenericKey), global::Envoy.Api.V2.Route.RateLimit.Types.Action.Types.GenericKey.Parser, new[]{ "DescriptorValue" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.RateLimit.Types.Action.Types.HeaderValueMatch), global::Envoy.Api.V2.Route.RateLimit.Types.Action.Types.HeaderValueMatch.Parser, new[]{ "DescriptorValue", "ExpectMatch", "Headers" }, null, null, null)})}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.HeaderMatcher), global::Envoy.Api.V2.Route.HeaderMatcher.Parser, new[]{ "Name", "Value", "Regex", "ExactMatch", "RegexMatch", "RangeMatch", "PresentMatch", "InvertMatch" }, new[]{ "HeaderMatchSpecifier" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.HeaderMatcher), global::Envoy.Api.V2.Route.HeaderMatcher.Parser, new[]{ "Name", "Value", "Regex", "ExactMatch", "RegexMatch", "RangeMatch", "PresentMatch", "PrefixMatch", "SuffixMatch", "InvertMatch" }, new[]{ "HeaderMatchSpecifier" }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Route.QueryParameterMatcher), global::Envoy.Api.V2.Route.QueryParameterMatcher.Parser, new[]{ "Name", "Value", "Regex" }, null, null, null)
           }));
     }
@@ -2296,7 +2298,7 @@ namespace Envoy.Api.V2.Route {
   }
 
   /// <summary>
-  /// [#comment:next free field: 23]
+  /// [#comment:next free field: 24]
   /// </summary>
   public sealed partial class RouteAction : pb::IMessage<RouteAction> {
     private static readonly pb::MessageParser<RouteAction> _parser = new pb::MessageParser<RouteAction>(() => new RouteAction());
@@ -2339,6 +2341,7 @@ namespace Envoy.Api.V2.Route {
       UseWebsocket = other.UseWebsocket;
       WebsocketConfig = other.websocketConfig_ != null ? other.WebsocketConfig.Clone() : null;
       Cors = other.cors_ != null ? other.Cors.Clone() : null;
+      MaxGrpcTimeout = other.maxGrpcTimeout_ != null ? other.MaxGrpcTimeout.Clone() : null;
       switch (other.ClusterSpecifierCase) {
         case ClusterSpecifierOneofCase.Cluster:
           Cluster = other.Cluster;
@@ -2752,6 +2755,29 @@ namespace Envoy.Api.V2.Route {
       }
     }
 
+    /// <summary>Field number for the "max_grpc_timeout" field.</summary>
+    public const int MaxGrpcTimeoutFieldNumber = 23;
+    private global::Google.Protobuf.WellKnownTypes.Duration maxGrpcTimeout_;
+    /// <summary>
+    /// If present, and the request is a gRPC request, use the
+    /// `grpc-timeout header &lt;https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md>`_,
+    /// or its default value (infinity) instead of
+    /// :ref:`timeout &lt;envoy_api_field_route.RouteAction.timeout>`, but limit the applied timeout
+    /// to the maximum value specified here. If configured as 0, the maximum allowed timeout for
+    /// gRPC requests is infinity. If not configured at all, the `grpc-timeout` header is not used
+    /// and gRPC requests time out like any other requests using
+    /// :ref:`timeout &lt;envoy_api_field_route.RouteAction.timeout>` or its default.
+    /// This can be used to prevent unexpected upstream request timeouts due to potentially long
+    /// time gaps between gRPC request and response in gRPC streaming mode.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.WellKnownTypes.Duration MaxGrpcTimeout {
+      get { return maxGrpcTimeout_; }
+      set {
+        maxGrpcTimeout_ = value;
+      }
+    }
+
     private object clusterSpecifier_;
     /// <summary>Enum of possible cases for the "cluster_specifier" oneof.</summary>
     public enum ClusterSpecifierOneofCase {
@@ -2825,6 +2851,7 @@ namespace Envoy.Api.V2.Route {
       if (UseWebsocket != other.UseWebsocket) return false;
       if (!object.Equals(WebsocketConfig, other.WebsocketConfig)) return false;
       if (!object.Equals(Cors, other.Cors)) return false;
+      if (!object.Equals(MaxGrpcTimeout, other.MaxGrpcTimeout)) return false;
       if (ClusterSpecifierCase != other.ClusterSpecifierCase) return false;
       if (HostRewriteSpecifierCase != other.HostRewriteSpecifierCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -2854,6 +2881,7 @@ namespace Envoy.Api.V2.Route {
       if (useWebsocket_ != null) hash ^= UseWebsocket.GetHashCode();
       if (websocketConfig_ != null) hash ^= WebsocketConfig.GetHashCode();
       if (cors_ != null) hash ^= Cors.GetHashCode();
+      if (maxGrpcTimeout_ != null) hash ^= MaxGrpcTimeout.GetHashCode();
       hash ^= (int) clusterSpecifierCase_;
       hash ^= (int) hostRewriteSpecifierCase_;
       if (_unknownFields != null) {
@@ -2935,6 +2963,10 @@ namespace Envoy.Api.V2.Route {
         output.WriteRawTag(178, 1);
         output.WriteMessage(WebsocketConfig);
       }
+      if (maxGrpcTimeout_ != null) {
+        output.WriteRawTag(186, 1);
+        output.WriteMessage(MaxGrpcTimeout);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2995,6 +3027,9 @@ namespace Envoy.Api.V2.Route {
       }
       if (cors_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Cors);
+      }
+      if (maxGrpcTimeout_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(MaxGrpcTimeout);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3066,6 +3101,12 @@ namespace Envoy.Api.V2.Route {
           cors_ = new global::Envoy.Api.V2.Route.CorsPolicy();
         }
         Cors.MergeFrom(other.Cors);
+      }
+      if (other.maxGrpcTimeout_ != null) {
+        if (maxGrpcTimeout_ == null) {
+          maxGrpcTimeout_ = new global::Google.Protobuf.WellKnownTypes.Duration();
+        }
+        MaxGrpcTimeout.MergeFrom(other.MaxGrpcTimeout);
       }
       switch (other.ClusterSpecifierCase) {
         case ClusterSpecifierOneofCase.Cluster:
@@ -3213,6 +3254,13 @@ namespace Envoy.Api.V2.Route {
               websocketConfig_ = new global::Envoy.Api.V2.Route.RouteAction.Types.WebSocketProxyConfig();
             }
             input.ReadMessage(websocketConfig_);
+            break;
+          }
+          case 186: {
+            if (maxGrpcTimeout_ == null) {
+              maxGrpcTimeout_ = new global::Google.Protobuf.WellKnownTypes.Duration();
+            }
+            input.ReadMessage(maxGrpcTimeout_);
             break;
           }
         }
@@ -7016,6 +7064,12 @@ namespace Envoy.Api.V2.Route {
         case HeaderMatchSpecifierOneofCase.PresentMatch:
           PresentMatch = other.PresentMatch;
           break;
+        case HeaderMatchSpecifierOneofCase.PrefixMatch:
+          PrefixMatch = other.PrefixMatch;
+          break;
+        case HeaderMatchSpecifierOneofCase.SuffixMatch:
+          SuffixMatch = other.SuffixMatch;
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -7164,11 +7218,49 @@ namespace Envoy.Api.V2.Route {
       }
     }
 
+    /// <summary>Field number for the "prefix_match" field.</summary>
+    public const int PrefixMatchFieldNumber = 9;
+    /// <summary>
+    /// If specified, header match will be performed based on the prefix of the header value.
+    /// Note: empty prefix is not allowed, please use present_match instead.
+    ///
+    /// Examples:
+    ///
+    /// * The prefix *abcd* matches the value *abcdxyz*, but not for *abcxyz*.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PrefixMatch {
+      get { return headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.PrefixMatch ? (string) headerMatchSpecifier_ : ""; }
+      set {
+        headerMatchSpecifier_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        headerMatchSpecifierCase_ = HeaderMatchSpecifierOneofCase.PrefixMatch;
+      }
+    }
+
+    /// <summary>Field number for the "suffix_match" field.</summary>
+    public const int SuffixMatchFieldNumber = 10;
+    /// <summary>
+    /// If specified, header match will be performed based on the suffix of the header value.
+    /// Note: empty suffix is not allowed, please use present_match instead.
+    ///
+    /// Examples:
+    ///
+    /// * The suffix *abcd* matches the value *xyzabcd*, but not for *xyzbcd*.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string SuffixMatch {
+      get { return headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.SuffixMatch ? (string) headerMatchSpecifier_ : ""; }
+      set {
+        headerMatchSpecifier_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        headerMatchSpecifierCase_ = HeaderMatchSpecifierOneofCase.SuffixMatch;
+      }
+    }
+
     /// <summary>Field number for the "invert_match" field.</summary>
     public const int InvertMatchFieldNumber = 8;
     private bool invertMatch_;
     /// <summary>
-    /// If specified, the match result will be inverted before before checking. Defaults to false.
+    /// If specified, the match result will be inverted before checking. Defaults to false.
     ///
     /// Examples:
     ///
@@ -7191,6 +7283,8 @@ namespace Envoy.Api.V2.Route {
       RegexMatch = 5,
       RangeMatch = 6,
       PresentMatch = 7,
+      PrefixMatch = 9,
+      SuffixMatch = 10,
     }
     private HeaderMatchSpecifierOneofCase headerMatchSpecifierCase_ = HeaderMatchSpecifierOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7224,6 +7318,8 @@ namespace Envoy.Api.V2.Route {
       if (RegexMatch != other.RegexMatch) return false;
       if (!object.Equals(RangeMatch, other.RangeMatch)) return false;
       if (PresentMatch != other.PresentMatch) return false;
+      if (PrefixMatch != other.PrefixMatch) return false;
+      if (SuffixMatch != other.SuffixMatch) return false;
       if (InvertMatch != other.InvertMatch) return false;
       if (HeaderMatchSpecifierCase != other.HeaderMatchSpecifierCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -7239,6 +7335,8 @@ namespace Envoy.Api.V2.Route {
       if (headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.RegexMatch) hash ^= RegexMatch.GetHashCode();
       if (headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.RangeMatch) hash ^= RangeMatch.GetHashCode();
       if (headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.PresentMatch) hash ^= PresentMatch.GetHashCode();
+      if (headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.PrefixMatch) hash ^= PrefixMatch.GetHashCode();
+      if (headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.SuffixMatch) hash ^= SuffixMatch.GetHashCode();
       if (InvertMatch != false) hash ^= InvertMatch.GetHashCode();
       hash ^= (int) headerMatchSpecifierCase_;
       if (_unknownFields != null) {
@@ -7285,6 +7383,14 @@ namespace Envoy.Api.V2.Route {
         output.WriteRawTag(64);
         output.WriteBool(InvertMatch);
       }
+      if (headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.PrefixMatch) {
+        output.WriteRawTag(74);
+        output.WriteString(PrefixMatch);
+      }
+      if (headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.SuffixMatch) {
+        output.WriteRawTag(82);
+        output.WriteString(SuffixMatch);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -7313,6 +7419,12 @@ namespace Envoy.Api.V2.Route {
       }
       if (headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.PresentMatch) {
         size += 1 + 1;
+      }
+      if (headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.PrefixMatch) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PrefixMatch);
+      }
+      if (headerMatchSpecifierCase_ == HeaderMatchSpecifierOneofCase.SuffixMatch) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SuffixMatch);
       }
       if (InvertMatch != false) {
         size += 1 + 1;
@@ -7357,6 +7469,12 @@ namespace Envoy.Api.V2.Route {
           break;
         case HeaderMatchSpecifierOneofCase.PresentMatch:
           PresentMatch = other.PresentMatch;
+          break;
+        case HeaderMatchSpecifierOneofCase.PrefixMatch:
+          PrefixMatch = other.PrefixMatch;
+          break;
+        case HeaderMatchSpecifierOneofCase.SuffixMatch:
+          SuffixMatch = other.SuffixMatch;
           break;
       }
 
@@ -7409,6 +7527,14 @@ namespace Envoy.Api.V2.Route {
           }
           case 64: {
             InvertMatch = input.ReadBool();
+            break;
+          }
+          case 74: {
+            PrefixMatch = input.ReadString();
+            break;
+          }
+          case 82: {
+            SuffixMatch = input.ReadString();
             break;
           }
         }

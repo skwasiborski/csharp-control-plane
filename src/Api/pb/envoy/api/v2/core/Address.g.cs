@@ -259,14 +259,16 @@ namespace Envoy.Api.V2.Core {
     private string address_ = "";
     /// <summary>
     /// The address for this socket. :ref:`Listeners &lt;config_listeners>` will bind
-    /// to the address or outbound connections will be made. An empty address is
-    /// not allowed, specify ``0.0.0.0`` or ``::`` to bind any. It's still possible to
-    /// distinguish on an address via the prefix/suffix matching in
-    /// FilterChainMatch after connection. For :ref:`clusters
-    /// &lt;config_cluster_manager_cluster>`, an address may be either an IP or
-    /// hostname to be resolved via DNS. If it is a hostname, :ref:`resolver_name
-    /// &lt;envoy_api_field_core.SocketAddress.resolver_name>` should be set unless default
-    /// (i.e. DNS) resolution is expected.
+    /// to the address. An empty address is not allowed. Specify ``0.0.0.0`` or ``::``
+    /// to bind to any address. [#comment:TODO(zuercher) reinstate when implemented:
+    /// It is possible to distinguish a Listener address via the prefix/suffix matching
+    /// in :ref:`FilterChainMatch &lt;envoy_api_msg_listener.FilterChainMatch>`.] When used
+    /// within an upstream :ref:`BindConfig &lt;envoy_api_msg_core.BindConfig>`, the address
+    /// controls the source address of outbound connections. For :ref:`clusters
+    /// &lt;config_cluster_manager_cluster>`, the cluster type determines whether the
+    /// address must be an IP (*STATIC* or *EDS* clusters) or a hostname resolved by DNS
+    /// (*STRICT_DNS* or *LOGICAL_DNS* clusters). Address resolution can be customized
+    /// via :ref:`resolver_name &lt;envoy_api_field_core.SocketAddress.resolver_name>`.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Address {

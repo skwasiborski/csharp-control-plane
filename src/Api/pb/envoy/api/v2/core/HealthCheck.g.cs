@@ -29,7 +29,7 @@ namespace Envoy.Api.V2.Core {
             "b29nbGUvcHJvdG9idWYvZHVyYXRpb24ucHJvdG8aHGdvb2dsZS9wcm90b2J1",
             "Zi9zdHJ1Y3QucHJvdG8aHmdvb2dsZS9wcm90b2J1Zi93cmFwcGVycy5wcm90",
             "bxoXdmFsaWRhdGUvdmFsaWRhdGUucHJvdG8aFGdvZ29wcm90by9nb2dvLnBy",
-            "b3RvIoENCgtIZWFsdGhDaGVjaxI2Cgd0aW1lb3V0GAEgASgLMhkuZ29vZ2xl",
+            "b3RvIpQNCgtIZWFsdGhDaGVjaxI2Cgd0aW1lb3V0GAEgASgLMhkuZ29vZ2xl",
             "LnByb3RvYnVmLkR1cmF0aW9uQgq66cADBaoBAggBEjcKCGludGVydmFsGAIg",
             "ASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uQgq66cADBaoBAggBEjIK",
             "D2ludGVydmFsX2ppdHRlchgDIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJh",
@@ -53,27 +53,27 @@ namespace Envoy.Api.V2.Core {
             "cHJvdG9idWYuRHVyYXRpb24SOAoVaGVhbHRoeV9lZGdlX2ludGVydmFsGBAg",
             "ASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uGkgKB1BheWxvYWQSGQoE",
             "dGV4dBgBIAEoCUIJuunAAwRyAiABSAASEAoGYmluYXJ5GAIgASgMSABCEAoH",
-            "cGF5bG9hZBIFuOnAAwEagwIKD0h0dHBIZWFsdGhDaGVjaxIMCgRob3N0GAEg",
+            "cGF5bG9hZBIFuOnAAwEalgIKD0h0dHBIZWFsdGhDaGVjaxIMCgRob3N0GAEg",
             "ASgJEhcKBHBhdGgYAiABKAlCCbrpwAMEcgIgARI0CgRzZW5kGAMgASgLMiYu",
             "ZW52b3kuYXBpLnYyLmNvcmUuSGVhbHRoQ2hlY2suUGF5bG9hZBI3CgdyZWNl",
             "aXZlGAQgASgLMiYuZW52b3kuYXBpLnYyLmNvcmUuSGVhbHRoQ2hlY2suUGF5",
             "bG9hZBIUCgxzZXJ2aWNlX25hbWUYBSABKAkSRAoWcmVxdWVzdF9oZWFkZXJz",
             "X3RvX2FkZBgGIAMoCzIkLmVudm95LmFwaS52Mi5jb3JlLkhlYWRlclZhbHVl",
-            "T3B0aW9uGn8KDlRjcEhlYWx0aENoZWNrEjQKBHNlbmQYASABKAsyJi5lbnZv",
-            "eS5hcGkudjIuY29yZS5IZWFsdGhDaGVjay5QYXlsb2FkEjcKB3JlY2VpdmUY",
-            "AiADKAsyJi5lbnZveS5hcGkudjIuY29yZS5IZWFsdGhDaGVjay5QYXlsb2Fk",
-            "Gh8KEFJlZGlzSGVhbHRoQ2hlY2sSCwoDa2V5GAEgASgJGicKD0dycGNIZWFs",
-            "dGhDaGVjaxIUCgxzZXJ2aWNlX25hbWUYASABKAkaVQoRQ3VzdG9tSGVhbHRo",
-            "Q2hlY2sSFwoEbmFtZRgBIAEoCUIJuunAAwRyAiABEicKBmNvbmZpZxgCIAEo",
-            "CzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RCFwoOaGVhbHRoX2NoZWNrZXIS",
-            "BbjpwAMBKlIKDEhlYWx0aFN0YXR1cxILCgdVTktOT1dOEAASCwoHSEVBTFRI",
-            "WRABEg0KCVVOSEVBTFRIWRACEgwKCERSQUlOSU5HEAMSCwoHVElNRU9VVBAE",
-            "QgSo4h4BYgZwcm90bzM="));
+            "T3B0aW9uEhEKCXVzZV9odHRwMhgHIAEoCBp/Cg5UY3BIZWFsdGhDaGVjaxI0",
+            "CgRzZW5kGAEgASgLMiYuZW52b3kuYXBpLnYyLmNvcmUuSGVhbHRoQ2hlY2su",
+            "UGF5bG9hZBI3CgdyZWNlaXZlGAIgAygLMiYuZW52b3kuYXBpLnYyLmNvcmUu",
+            "SGVhbHRoQ2hlY2suUGF5bG9hZBofChBSZWRpc0hlYWx0aENoZWNrEgsKA2tl",
+            "eRgBIAEoCRonCg9HcnBjSGVhbHRoQ2hlY2sSFAoMc2VydmljZV9uYW1lGAEg",
+            "ASgJGlUKEUN1c3RvbUhlYWx0aENoZWNrEhcKBG5hbWUYASABKAlCCbrpwAME",
+            "cgIgARInCgZjb25maWcYAiABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0",
+            "QhcKDmhlYWx0aF9jaGVja2VyEgW46cADASpSCgxIZWFsdGhTdGF0dXMSCwoH",
+            "VU5LTk9XThAAEgsKB0hFQUxUSFkQARINCglVTkhFQUxUSFkQAhIMCghEUkFJ",
+            "TklORxADEgsKB1RJTUVPVVQQBEIEqOIeAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Envoy.Api.V2.Core.BaseReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Validate.ValidateReflection.Descriptor, global::Gogoproto.GogoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Envoy.Api.V2.Core.HealthStatus), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Core.HealthCheck), global::Envoy.Api.V2.Core.HealthCheck.Parser, new[]{ "Timeout", "Interval", "IntervalJitter", "UnhealthyThreshold", "HealthyThreshold", "AltPort", "ReuseConnection", "HttpHealthCheck", "TcpHealthCheck", "RedisHealthCheck", "GrpcHealthCheck", "CustomHealthCheck", "NoTrafficInterval", "UnhealthyInterval", "UnhealthyEdgeInterval", "HealthyEdgeInterval" }, new[]{ "HealthChecker" }, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Core.HealthCheck.Types.Payload), global::Envoy.Api.V2.Core.HealthCheck.Types.Payload.Parser, new[]{ "Text", "Binary" }, new[]{ "Payload" }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Core.HealthCheck.Types.HttpHealthCheck), global::Envoy.Api.V2.Core.HealthCheck.Types.HttpHealthCheck.Parser, new[]{ "Host", "Path", "Send", "Receive", "ServiceName", "RequestHeadersToAdd" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Core.HealthCheck.Types.HttpHealthCheck), global::Envoy.Api.V2.Core.HealthCheck.Types.HttpHealthCheck.Parser, new[]{ "Host", "Path", "Send", "Receive", "ServiceName", "RequestHeadersToAdd", "UseHttp2" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Core.HealthCheck.Types.TcpHealthCheck), global::Envoy.Api.V2.Core.HealthCheck.Types.TcpHealthCheck.Parser, new[]{ "Send", "Receive" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Core.HealthCheck.Types.RedisHealthCheck), global::Envoy.Api.V2.Core.HealthCheck.Types.RedisHealthCheck.Parser, new[]{ "Key" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Core.HealthCheck.Types.GrpcHealthCheck), global::Envoy.Api.V2.Core.HealthCheck.Types.GrpcHealthCheck.Parser, new[]{ "ServiceName" }, null, null, null),
@@ -1113,6 +1113,7 @@ namespace Envoy.Api.V2.Core {
           Receive = other.receive_ != null ? other.Receive.Clone() : null;
           serviceName_ = other.serviceName_;
           requestHeadersToAdd_ = other.requestHeadersToAdd_.Clone();
+          useHttp2_ = other.useHttp2_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1210,6 +1211,20 @@ namespace Envoy.Api.V2.Core {
           get { return requestHeadersToAdd_; }
         }
 
+        /// <summary>Field number for the "use_http2" field.</summary>
+        public const int UseHttp2FieldNumber = 7;
+        private bool useHttp2_;
+        /// <summary>
+        /// If set, health checks will be made using http/2.
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool UseHttp2 {
+          get { return useHttp2_; }
+          set {
+            useHttp2_ = value;
+          }
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as HttpHealthCheck);
@@ -1229,6 +1244,7 @@ namespace Envoy.Api.V2.Core {
           if (!object.Equals(Receive, other.Receive)) return false;
           if (ServiceName != other.ServiceName) return false;
           if(!requestHeadersToAdd_.Equals(other.requestHeadersToAdd_)) return false;
+          if (UseHttp2 != other.UseHttp2) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1241,6 +1257,7 @@ namespace Envoy.Api.V2.Core {
           if (receive_ != null) hash ^= Receive.GetHashCode();
           if (ServiceName.Length != 0) hash ^= ServiceName.GetHashCode();
           hash ^= requestHeadersToAdd_.GetHashCode();
+          if (UseHttp2 != false) hash ^= UseHttp2.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1275,6 +1292,10 @@ namespace Envoy.Api.V2.Core {
             output.WriteString(ServiceName);
           }
           requestHeadersToAdd_.WriteTo(output, _repeated_requestHeadersToAdd_codec);
+          if (UseHttp2 != false) {
+            output.WriteRawTag(56);
+            output.WriteBool(UseHttp2);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -1299,6 +1320,9 @@ namespace Envoy.Api.V2.Core {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(ServiceName);
           }
           size += requestHeadersToAdd_.CalculateSize(_repeated_requestHeadersToAdd_codec);
+          if (UseHttp2 != false) {
+            size += 1 + 1;
+          }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
           }
@@ -1332,6 +1356,9 @@ namespace Envoy.Api.V2.Core {
             ServiceName = other.ServiceName;
           }
           requestHeadersToAdd_.Add(other.requestHeadersToAdd_);
+          if (other.UseHttp2 != false) {
+            UseHttp2 = other.UseHttp2;
+          }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
 
@@ -1371,6 +1398,10 @@ namespace Envoy.Api.V2.Core {
               }
               case 50: {
                 requestHeadersToAdd_.AddEntriesFrom(input, _repeated_requestHeadersToAdd_codec);
+                break;
+              }
+              case 56: {
+                UseHttp2 = input.ReadBool();
                 break;
               }
             }

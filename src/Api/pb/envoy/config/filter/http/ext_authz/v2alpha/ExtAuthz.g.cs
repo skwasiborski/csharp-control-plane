@@ -47,7 +47,8 @@ namespace Envoy.Config.Filter.Http.ExtAuthz.V2Alpha {
   }
   #region Messages
   /// <summary>
-  /// The external authorization HTTP service configuration.
+  /// [#not-implemented-hide:]
+  /// [#comment: The HttpService is under development and will be supported soon.]
   /// </summary>
   public sealed partial class HttpService : pb::IMessage<HttpService> {
     private static readonly pb::MessageParser<HttpService> _parser = new pb::MessageParser<HttpService>(() => new HttpService());
@@ -218,6 +219,12 @@ namespace Envoy.Config.Filter.Http.ExtAuthz.V2Alpha {
 
   }
 
+  /// <summary>
+  /// External Authorization filter calls out to an external service over the
+  /// gRPC Authorization API defined by
+  /// :ref:`CheckRequest &lt;envoy_api_msg_service.auth.v2alpha.CheckRequest>`.
+  /// A failed check will cause this filter to close the HTTP request with 403(Forbidden).
+  /// </summary>
   public sealed partial class ExtAuthz : pb::IMessage<ExtAuthz> {
     private static readonly pb::MessageParser<ExtAuthz> _parser = new pb::MessageParser<ExtAuthz>(() => new ExtAuthz());
     private pb::UnknownFieldSet _unknownFields;
@@ -265,6 +272,7 @@ namespace Envoy.Config.Filter.Http.ExtAuthz.V2Alpha {
     public const int GrpcServiceFieldNumber = 1;
     /// <summary>
     /// The external authorization gRPC service configuration.
+    /// The default timeout is set to 200ms by this filter.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Envoy.Api.V2.Core.GrpcService GrpcService {
@@ -279,6 +287,7 @@ namespace Envoy.Config.Filter.Http.ExtAuthz.V2Alpha {
     public const int HttpServiceFieldNumber = 3;
     /// <summary>
     /// The external authorization HTTP service configuration.
+    /// [#not-implemented-hide:]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Envoy.Config.Filter.Http.ExtAuthz.V2Alpha.HttpService HttpService {
@@ -294,9 +303,8 @@ namespace Envoy.Config.Filter.Http.ExtAuthz.V2Alpha {
     private bool failureModeAllow_;
     /// <summary>
     /// The filter's behaviour in case the external authorization service does
-    /// not respond back. If set to true then in case of failure to get a
-    /// response back from the authorization service or getting a response that
-    /// is NOT denied then traffic will be permitted.
+    /// not respond back. When it is set to true, Envoy will also allow traffic in case of
+    /// communication failure between authorization service and the proxy.
     /// Defaults to false.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

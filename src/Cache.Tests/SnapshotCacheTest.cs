@@ -33,7 +33,7 @@ namespace Envoy.ControlPlane.Cache.Tests
         }
         
         [Fact]
-        public void NoSnapshot_GetResponseForStream_ReturnsUnresolvedTask()
+        public async Task NoSnapshot_GetResponseForStream_ReturnsUnresolvedTask()
         {
             // Arrange
             var cache = new SnapshotCache(true);
@@ -42,6 +42,7 @@ namespace Envoy.ControlPlane.Cache.Tests
             var resultTask = cache.CreateWatch(ClusterRequest);
             
             // Assert
+            await Task.Delay(1000);
             Assert.False(resultTask.Response.IsCompleted);
         }
         

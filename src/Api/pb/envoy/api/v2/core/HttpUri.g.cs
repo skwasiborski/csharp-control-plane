@@ -43,7 +43,6 @@ namespace Envoy.Api.V2.Core {
   #region Messages
   /// <summary>
   /// Envoy external URI descriptor
-  /// [#not-implemented-hide:]
   /// </summary>
   public sealed partial class HttpUri : pb::IMessage<HttpUri> {
     private static readonly pb::MessageParser<HttpUri> _parser = new pb::MessageParser<HttpUri>(() => new HttpUri());

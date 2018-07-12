@@ -32,99 +32,101 @@ namespace Envoy.Api.V2 {
             "aF9jaGVjay5wcm90bxogZW52b3kvYXBpL3YyL2NvcmUvcHJvdG9jb2wucHJv",
             "dG8aKmVudm95L2FwaS92Mi9jbHVzdGVyL2NpcmN1aXRfYnJlYWtlci5wcm90",
             "bxosZW52b3kvYXBpL3YyL2NsdXN0ZXIvb3V0bGllcl9kZXRlY3Rpb24ucHJv",
-            "dG8aGGVudm95L3R5cGUvcGVyY2VudC5wcm90bxocZ29vZ2xlL2FwaS9hbm5v",
-            "dGF0aW9ucy5wcm90bxoeZ29vZ2xlL3Byb3RvYnVmL2R1cmF0aW9uLnByb3Rv",
-            "Ghxnb29nbGUvcHJvdG9idWYvc3RydWN0LnByb3RvGh5nb29nbGUvcHJvdG9i",
-            "dWYvd3JhcHBlcnMucHJvdG8aF3ZhbGlkYXRlL3ZhbGlkYXRlLnByb3RvGhRn",
-            "b2dvcHJvdG8vZ29nby5wcm90byKgGgoHQ2x1c3RlchIXCgRuYW1lGAEgASgJ",
-            "Qgm66cADBHICIAESFQoNYWx0X3N0YXRfbmFtZRgcIAEoCRI9CgR0eXBlGAIg",
-            "ASgOMiMuZW52b3kuYXBpLnYyLkNsdXN0ZXIuRGlzY292ZXJ5VHlwZUIKuunA",
-            "AwWCAQIQARJCChJlZHNfY2x1c3Rlcl9jb25maWcYAyABKAsyJi5lbnZveS5h",
-            "cGkudjIuQ2x1c3Rlci5FZHNDbHVzdGVyQ29uZmlnEkYKD2Nvbm5lY3RfdGlt",
-            "ZW91dBgEIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvbkISuunAAwWq",
-            "AQIqAJjfHwHI3h8AEkcKIXBlcl9jb25uZWN0aW9uX2J1ZmZlcl9saW1pdF9i",
-            "eXRlcxgFIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5VSW50MzJWYWx1ZRI9Cgls",
-            "Yl9wb2xpY3kYBiABKA4yHi5lbnZveS5hcGkudjIuQ2x1c3Rlci5MYlBvbGlj",
-            "eUIKuunAAwWCAQIQARIpCgVob3N0cxgHIAMoCzIaLmVudm95LmFwaS52Mi5j",
-            "b3JlLkFkZHJlc3MSNQoNaGVhbHRoX2NoZWNrcxgIIAMoCzIeLmVudm95LmFw",
-            "aS52Mi5jb3JlLkhlYWx0aENoZWNrEkEKG21heF9yZXF1ZXN0c19wZXJfY29u",
-            "bmVjdGlvbhgJIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5VSW50MzJWYWx1ZRI/",
-            "ChBjaXJjdWl0X2JyZWFrZXJzGAogASgLMiUuZW52b3kuYXBpLnYyLmNsdXN0",
-            "ZXIuQ2lyY3VpdEJyZWFrZXJzEjoKC3Rsc19jb250ZXh0GAsgASgLMiUuZW52",
-            "b3kuYXBpLnYyLmF1dGguVXBzdHJlYW1UbHNDb250ZXh0EkwKHGNvbW1vbl9o",
-            "dHRwX3Byb3RvY29sX29wdGlvbnMYHSABKAsyJi5lbnZveS5hcGkudjIuY29y",
-            "ZS5IdHRwUHJvdG9jb2xPcHRpb25zEkYKFWh0dHBfcHJvdG9jb2xfb3B0aW9u",
-            "cxgNIAEoCzInLmVudm95LmFwaS52Mi5jb3JlLkh0dHAxUHJvdG9jb2xPcHRp",
-            "b25zEkcKFmh0dHAyX3Byb3RvY29sX29wdGlvbnMYDiABKAsyJy5lbnZveS5h",
-            "cGkudjIuY29yZS5IdHRwMlByb3RvY29sT3B0aW9ucxJDChBkbnNfcmVmcmVz",
-            "aF9yYXRlGBAgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uQg666cAD",
-            "BaoBAioAmN8fARJMChFkbnNfbG9va3VwX2ZhbWlseRgRIAEoDjIlLmVudm95",
-            "LmFwaS52Mi5DbHVzdGVyLkRuc0xvb2t1cEZhbWlseUIKuunAAwWCAQIQARIx",
-            "Cg1kbnNfcmVzb2x2ZXJzGBIgAygLMhouZW52b3kuYXBpLnYyLmNvcmUuQWRk",
-            "cmVzcxJBChFvdXRsaWVyX2RldGVjdGlvbhgTIAEoCzImLmVudm95LmFwaS52",
-            "Mi5jbHVzdGVyLk91dGxpZXJEZXRlY3Rpb24SQwoQY2xlYW51cF9pbnRlcnZh",
-            "bBgUIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvbkIOuunAAwWqAQIq",
-            "AJjfHwESOwoUdXBzdHJlYW1fYmluZF9jb25maWcYFSABKAsyHS5lbnZveS5h",
-            "cGkudjIuY29yZS5CaW5kQ29uZmlnEj4KEGxiX3N1YnNldF9jb25maWcYFiAB",
-            "KAsyJC5lbnZveS5hcGkudjIuQ2x1c3Rlci5MYlN1YnNldENvbmZpZxJFChNy",
-            "aW5nX2hhc2hfbGJfY29uZmlnGBcgASgLMiYuZW52b3kuYXBpLnYyLkNsdXN0",
-            "ZXIuUmluZ0hhc2hMYkNvbmZpZ0gAEj4KEGNvbW1vbl9sYl9jb25maWcYGyAB",
-            "KAsyJC5lbnZveS5hcGkudjIuQ2x1c3Rlci5Db21tb25MYkNvbmZpZxI8ChB0",
-            "cmFuc3BvcnRfc29ja2V0GBggASgLMiIuZW52b3kuYXBpLnYyLmNvcmUuVHJh",
-            "bnNwb3J0U29ja2V0Ei0KCG1ldGFkYXRhGBkgASgLMhsuZW52b3kuYXBpLnYy",
-            "LmNvcmUuTWV0YWRhdGESSgoScHJvdG9jb2xfc2VsZWN0aW9uGBogASgOMi4u",
-            "ZW52b3kuYXBpLnYyLkNsdXN0ZXIuQ2x1c3RlclByb3RvY29sU2VsZWN0aW9u",
-            "EkwKG3Vwc3RyZWFtX2Nvbm5lY3Rpb25fb3B0aW9ucxgeIAEoCzInLmVudm95",
-            "LmFwaS52Mi5VcHN0cmVhbUNvbm5lY3Rpb25PcHRpb25zEjAKKGNsb3NlX2Nv",
-            "bm5lY3Rpb25zX29uX2hvc3RfaGVhbHRoX2ZhaWx1cmUYHyABKAgSKQohZHJh",
-            "aW5fY29ubmVjdGlvbnNfb25faG9zdF9yZW1vdmFsGCAgASgIGl0KEEVkc0Ns",
-            "dXN0ZXJDb25maWcSMwoKZWRzX2NvbmZpZxgBIAEoCzIfLmVudm95LmFwaS52",
-            "Mi5jb3JlLkNvbmZpZ1NvdXJjZRIUCgxzZXJ2aWNlX25hbWUYAiABKAka5wIK",
-            "DkxiU3Vic2V0Q29uZmlnEmAKD2ZhbGxiYWNrX3BvbGljeRgBIAEoDjI7LmVu",
-            "dm95LmFwaS52Mi5DbHVzdGVyLkxiU3Vic2V0Q29uZmlnLkxiU3Vic2V0RmFs",
-            "bGJhY2tQb2xpY3lCCrrpwAMFggECEAESLwoOZGVmYXVsdF9zdWJzZXQYAiAB",
-            "KAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0Ek8KEHN1YnNldF9zZWxlY3Rv",
-            "cnMYAyADKAsyNS5lbnZveS5hcGkudjIuQ2x1c3Rlci5MYlN1YnNldENvbmZp",
-            "Zy5MYlN1YnNldFNlbGVjdG9yGiAKEExiU3Vic2V0U2VsZWN0b3ISDAoEa2V5",
-            "cxgBIAMoCSJPChZMYlN1YnNldEZhbGxiYWNrUG9saWN5Eg8KC05PX0ZBTExC",
-            "QUNLEAASEAoMQU5ZX0VORFBPSU5UEAESEgoOREVGQVVMVF9TVUJTRVQQAhrr",
-            "AQoQUmluZ0hhc2hMYkNvbmZpZxJFChFtaW5pbXVtX3Jpbmdfc2l6ZRgBIAEo",
-            "CzIcLmdvb2dsZS5wcm90b2J1Zi5VSW50NjRWYWx1ZUIMuunAAwcyBRiAgIAE",
-            "Ek4KDWRlcHJlY2F0ZWRfdjEYAiABKAsyMy5lbnZveS5hcGkudjIuQ2x1c3Rl",
-            "ci5SaW5nSGFzaExiQ29uZmlnLkRlcHJlY2F0ZWRWMUICGAEaQAoMRGVwcmVj",
-            "YXRlZFYxEjAKDHVzZV9zdGRfaGFzaBgBIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5Cb29sVmFsdWUauAMKDkNvbW1vbkxiQ29uZmlnEjQKF2hlYWx0aHlfcGFu",
-            "aWNfdGhyZXNob2xkGAEgASgLMhMuZW52b3kudHlwZS5QZXJjZW50ElYKFHpv",
-            "bmVfYXdhcmVfbGJfY29uZmlnGAIgASgLMjYuZW52b3kuYXBpLnYyLkNsdXN0",
-            "ZXIuQ29tbW9uTGJDb25maWcuWm9uZUF3YXJlTGJDb25maWdIABJkChtsb2Nh",
-            "bGl0eV93ZWlnaHRlZF9sYl9jb25maWcYAyABKAsyPS5lbnZveS5hcGkudjIu",
-            "Q2x1c3Rlci5Db21tb25MYkNvbmZpZy5Mb2NhbGl0eVdlaWdodGVkTGJDb25m",
-            "aWdIABp5ChFab25lQXdhcmVMYkNvbmZpZxIsCg9yb3V0aW5nX2VuYWJsZWQY",
-            "ASABKAsyEy5lbnZveS50eXBlLlBlcmNlbnQSNgoQbWluX2NsdXN0ZXJfc2l6",
-            "ZRgCIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5VSW50NjRWYWx1ZRoaChhMb2Nh",
-            "bGl0eVdlaWdodGVkTGJDb25maWdCGwoZbG9jYWxpdHlfY29uZmlnX3NwZWNp",
-            "ZmllciJXCg1EaXNjb3ZlcnlUeXBlEgoKBlNUQVRJQxAAEg4KClNUUklDVF9E",
-            "TlMQARIPCgtMT0dJQ0FMX0ROUxACEgcKA0VEUxADEhAKDE9SSUdJTkFMX0RT",
-            "VBAEImoKCExiUG9saWN5Eg8KC1JPVU5EX1JPQklOEAASEQoNTEVBU1RfUkVR",
-            "VUVTVBABEg0KCVJJTkdfSEFTSBACEgoKBlJBTkRPTRADEhMKD09SSUdJTkFM",
-            "X0RTVF9MQhAEEgoKBk1BR0xFVhAFIjUKD0Ruc0xvb2t1cEZhbWlseRIICgRB",
-            "VVRPEAASCwoHVjRfT05MWRABEgsKB1Y2X09OTFkQAiJUChhDbHVzdGVyUHJv",
-            "dG9jb2xTZWxlY3Rpb24SGwoXVVNFX0NPTkZJR1VSRURfUFJPVE9DT0wQABIb",
-            "ChdVU0VfRE9XTlNUUkVBTV9QUk9UT0NPTBABQgsKCWxiX2NvbmZpZ0oECAwQ",
-            "DUoECA8QECJIChJVcHN0cmVhbUJpbmRDb25maWcSMgoOc291cmNlX2FkZHJl",
-            "c3MYASABKAsyGi5lbnZveS5hcGkudjIuY29yZS5BZGRyZXNzIlMKGVVwc3Ry",
-            "ZWFtQ29ubmVjdGlvbk9wdGlvbnMSNgoNdGNwX2tlZXBhbGl2ZRgBIAEoCzIf",
-            "LmVudm95LmFwaS52Mi5jb3JlLlRjcEtlZXBhbGl2ZTLnAQoXQ2x1c3RlckRp",
-            "c2NvdmVyeVNlcnZpY2USVwoOU3RyZWFtQ2x1c3RlcnMSHi5lbnZveS5hcGku",
-            "djIuRGlzY292ZXJ5UmVxdWVzdBofLmVudm95LmFwaS52Mi5EaXNjb3ZlcnlS",
-            "ZXNwb25zZSIAKAEwARJzCg1GZXRjaENsdXN0ZXJzEh4uZW52b3kuYXBpLnYy",
-            "LkRpc2NvdmVyeVJlcXVlc3QaHy5lbnZveS5hcGkudjIuRGlzY292ZXJ5UmVz",
-            "cG9uc2UiIYLT5JMCGyIWL3YyL2Rpc2NvdmVyeTpjbHVzdGVyczoBKkIHiAEB",
-            "qOIeAWIGcHJvdG8z"));
+            "dG8aFmVudm95L2FwaS92Mi9lZHMucHJvdG8aGGVudm95L3R5cGUvcGVyY2Vu",
+            "dC5wcm90bxocZ29vZ2xlL2FwaS9hbm5vdGF0aW9ucy5wcm90bxoeZ29vZ2xl",
+            "L3Byb3RvYnVmL2R1cmF0aW9uLnByb3RvGhxnb29nbGUvcHJvdG9idWYvc3Ry",
+            "dWN0LnByb3RvGh5nb29nbGUvcHJvdG9idWYvd3JhcHBlcnMucHJvdG8aF3Zh",
+            "bGlkYXRlL3ZhbGlkYXRlLnByb3RvGhRnb2dvcHJvdG8vZ29nby5wcm90byLe",
+            "GgoHQ2x1c3RlchIXCgRuYW1lGAEgASgJQgm66cADBHICIAESFQoNYWx0X3N0",
+            "YXRfbmFtZRgcIAEoCRI9CgR0eXBlGAIgASgOMiMuZW52b3kuYXBpLnYyLkNs",
+            "dXN0ZXIuRGlzY292ZXJ5VHlwZUIKuunAAwWCAQIQARJCChJlZHNfY2x1c3Rl",
+            "cl9jb25maWcYAyABKAsyJi5lbnZveS5hcGkudjIuQ2x1c3Rlci5FZHNDbHVz",
+            "dGVyQ29uZmlnEkYKD2Nvbm5lY3RfdGltZW91dBgEIAEoCzIZLmdvb2dsZS5w",
+            "cm90b2J1Zi5EdXJhdGlvbkISuunAAwWqAQIqAJjfHwHI3h8AEkcKIXBlcl9j",
+            "b25uZWN0aW9uX2J1ZmZlcl9saW1pdF9ieXRlcxgFIAEoCzIcLmdvb2dsZS5w",
+            "cm90b2J1Zi5VSW50MzJWYWx1ZRI9CglsYl9wb2xpY3kYBiABKA4yHi5lbnZv",
+            "eS5hcGkudjIuQ2x1c3Rlci5MYlBvbGljeUIKuunAAwWCAQIQARIpCgVob3N0",
+            "cxgHIAMoCzIaLmVudm95LmFwaS52Mi5jb3JlLkFkZHJlc3MSPAoPbG9hZF9h",
+            "c3NpZ25tZW50GCEgASgLMiMuZW52b3kuYXBpLnYyLkNsdXN0ZXJMb2FkQXNz",
+            "aWdubWVudBI1Cg1oZWFsdGhfY2hlY2tzGAggAygLMh4uZW52b3kuYXBpLnYy",
+            "LmNvcmUuSGVhbHRoQ2hlY2sSQQobbWF4X3JlcXVlc3RzX3Blcl9jb25uZWN0",
+            "aW9uGAkgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlVJbnQzMlZhbHVlEj8KEGNp",
+            "cmN1aXRfYnJlYWtlcnMYCiABKAsyJS5lbnZveS5hcGkudjIuY2x1c3Rlci5D",
+            "aXJjdWl0QnJlYWtlcnMSOgoLdGxzX2NvbnRleHQYCyABKAsyJS5lbnZveS5h",
+            "cGkudjIuYXV0aC5VcHN0cmVhbVRsc0NvbnRleHQSTAocY29tbW9uX2h0dHBf",
+            "cHJvdG9jb2xfb3B0aW9ucxgdIAEoCzImLmVudm95LmFwaS52Mi5jb3JlLkh0",
+            "dHBQcm90b2NvbE9wdGlvbnMSRgoVaHR0cF9wcm90b2NvbF9vcHRpb25zGA0g",
+            "ASgLMicuZW52b3kuYXBpLnYyLmNvcmUuSHR0cDFQcm90b2NvbE9wdGlvbnMS",
+            "RwoWaHR0cDJfcHJvdG9jb2xfb3B0aW9ucxgOIAEoCzInLmVudm95LmFwaS52",
+            "Mi5jb3JlLkh0dHAyUHJvdG9jb2xPcHRpb25zEkMKEGRuc19yZWZyZXNoX3Jh",
+            "dGUYECABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25CDrrpwAMFqgEC",
+            "KgCY3x8BEkwKEWRuc19sb29rdXBfZmFtaWx5GBEgASgOMiUuZW52b3kuYXBp",
+            "LnYyLkNsdXN0ZXIuRG5zTG9va3VwRmFtaWx5Qgq66cADBYIBAhABEjEKDWRu",
+            "c19yZXNvbHZlcnMYEiADKAsyGi5lbnZveS5hcGkudjIuY29yZS5BZGRyZXNz",
+            "EkEKEW91dGxpZXJfZGV0ZWN0aW9uGBMgASgLMiYuZW52b3kuYXBpLnYyLmNs",
+            "dXN0ZXIuT3V0bGllckRldGVjdGlvbhJDChBjbGVhbnVwX2ludGVydmFsGBQg",
+            "ASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uQg666cADBaoBAioAmN8f",
+            "ARI7ChR1cHN0cmVhbV9iaW5kX2NvbmZpZxgVIAEoCzIdLmVudm95LmFwaS52",
+            "Mi5jb3JlLkJpbmRDb25maWcSPgoQbGJfc3Vic2V0X2NvbmZpZxgWIAEoCzIk",
+            "LmVudm95LmFwaS52Mi5DbHVzdGVyLkxiU3Vic2V0Q29uZmlnEkUKE3Jpbmdf",
+            "aGFzaF9sYl9jb25maWcYFyABKAsyJi5lbnZveS5hcGkudjIuQ2x1c3Rlci5S",
+            "aW5nSGFzaExiQ29uZmlnSAASPgoQY29tbW9uX2xiX2NvbmZpZxgbIAEoCzIk",
+            "LmVudm95LmFwaS52Mi5DbHVzdGVyLkNvbW1vbkxiQ29uZmlnEjwKEHRyYW5z",
+            "cG9ydF9zb2NrZXQYGCABKAsyIi5lbnZveS5hcGkudjIuY29yZS5UcmFuc3Bv",
+            "cnRTb2NrZXQSLQoIbWV0YWRhdGEYGSABKAsyGy5lbnZveS5hcGkudjIuY29y",
+            "ZS5NZXRhZGF0YRJKChJwcm90b2NvbF9zZWxlY3Rpb24YGiABKA4yLi5lbnZv",
+            "eS5hcGkudjIuQ2x1c3Rlci5DbHVzdGVyUHJvdG9jb2xTZWxlY3Rpb24STAob",
+            "dXBzdHJlYW1fY29ubmVjdGlvbl9vcHRpb25zGB4gASgLMicuZW52b3kuYXBp",
+            "LnYyLlVwc3RyZWFtQ29ubmVjdGlvbk9wdGlvbnMSMAooY2xvc2VfY29ubmVj",
+            "dGlvbnNfb25faG9zdF9oZWFsdGhfZmFpbHVyZRgfIAEoCBIpCiFkcmFpbl9j",
+            "b25uZWN0aW9uc19vbl9ob3N0X3JlbW92YWwYICABKAgaXQoQRWRzQ2x1c3Rl",
+            "ckNvbmZpZxIzCgplZHNfY29uZmlnGAEgASgLMh8uZW52b3kuYXBpLnYyLmNv",
+            "cmUuQ29uZmlnU291cmNlEhQKDHNlcnZpY2VfbmFtZRgCIAEoCRrnAgoOTGJT",
+            "dWJzZXRDb25maWcSYAoPZmFsbGJhY2tfcG9saWN5GAEgASgOMjsuZW52b3ku",
+            "YXBpLnYyLkNsdXN0ZXIuTGJTdWJzZXRDb25maWcuTGJTdWJzZXRGYWxsYmFj",
+            "a1BvbGljeUIKuunAAwWCAQIQARIvCg5kZWZhdWx0X3N1YnNldBgCIAEoCzIX",
+            "Lmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3QSTwoQc3Vic2V0X3NlbGVjdG9ycxgD",
+            "IAMoCzI1LmVudm95LmFwaS52Mi5DbHVzdGVyLkxiU3Vic2V0Q29uZmlnLkxi",
+            "U3Vic2V0U2VsZWN0b3IaIAoQTGJTdWJzZXRTZWxlY3RvchIMCgRrZXlzGAEg",
+            "AygJIk8KFkxiU3Vic2V0RmFsbGJhY2tQb2xpY3kSDwoLTk9fRkFMTEJBQ0sQ",
+            "ABIQCgxBTllfRU5EUE9JTlQQARISCg5ERUZBVUxUX1NVQlNFVBACGusBChBS",
+            "aW5nSGFzaExiQ29uZmlnEkUKEW1pbmltdW1fcmluZ19zaXplGAEgASgLMhwu",
+            "Z29vZ2xlLnByb3RvYnVmLlVJbnQ2NFZhbHVlQgy66cADBzIFGICAgAQSTgoN",
+            "ZGVwcmVjYXRlZF92MRgCIAEoCzIzLmVudm95LmFwaS52Mi5DbHVzdGVyLlJp",
+            "bmdIYXNoTGJDb25maWcuRGVwcmVjYXRlZFYxQgIYARpACgxEZXByZWNhdGVk",
+            "VjESMAoMdXNlX3N0ZF9oYXNoGAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLkJv",
+            "b2xWYWx1ZRq4AwoOQ29tbW9uTGJDb25maWcSNAoXaGVhbHRoeV9wYW5pY190",
+            "aHJlc2hvbGQYASABKAsyEy5lbnZveS50eXBlLlBlcmNlbnQSVgoUem9uZV9h",
+            "d2FyZV9sYl9jb25maWcYAiABKAsyNi5lbnZveS5hcGkudjIuQ2x1c3Rlci5D",
+            "b21tb25MYkNvbmZpZy5ab25lQXdhcmVMYkNvbmZpZ0gAEmQKG2xvY2FsaXR5",
+            "X3dlaWdodGVkX2xiX2NvbmZpZxgDIAEoCzI9LmVudm95LmFwaS52Mi5DbHVz",
+            "dGVyLkNvbW1vbkxiQ29uZmlnLkxvY2FsaXR5V2VpZ2h0ZWRMYkNvbmZpZ0gA",
+            "GnkKEVpvbmVBd2FyZUxiQ29uZmlnEiwKD3JvdXRpbmdfZW5hYmxlZBgBIAEo",
+            "CzITLmVudm95LnR5cGUuUGVyY2VudBI2ChBtaW5fY2x1c3Rlcl9zaXplGAIg",
+            "ASgLMhwuZ29vZ2xlLnByb3RvYnVmLlVJbnQ2NFZhbHVlGhoKGExvY2FsaXR5",
+            "V2VpZ2h0ZWRMYkNvbmZpZ0IbChlsb2NhbGl0eV9jb25maWdfc3BlY2lmaWVy",
+            "IlcKDURpc2NvdmVyeVR5cGUSCgoGU1RBVElDEAASDgoKU1RSSUNUX0ROUxAB",
+            "Eg8KC0xPR0lDQUxfRE5TEAISBwoDRURTEAMSEAoMT1JJR0lOQUxfRFNUEAQi",
+            "agoITGJQb2xpY3kSDwoLUk9VTkRfUk9CSU4QABIRCg1MRUFTVF9SRVFVRVNU",
+            "EAESDQoJUklOR19IQVNIEAISCgoGUkFORE9NEAMSEwoPT1JJR0lOQUxfRFNU",
+            "X0xCEAQSCgoGTUFHTEVWEAUiNQoPRG5zTG9va3VwRmFtaWx5EggKBEFVVE8Q",
+            "ABILCgdWNF9PTkxZEAESCwoHVjZfT05MWRACIlQKGENsdXN0ZXJQcm90b2Nv",
+            "bFNlbGVjdGlvbhIbChdVU0VfQ09ORklHVVJFRF9QUk9UT0NPTBAAEhsKF1VT",
+            "RV9ET1dOU1RSRUFNX1BST1RPQ09MEAFCCwoJbGJfY29uZmlnSgQIDBANSgQI",
+            "DxAQIkgKElVwc3RyZWFtQmluZENvbmZpZxIyCg5zb3VyY2VfYWRkcmVzcxgB",
+            "IAEoCzIaLmVudm95LmFwaS52Mi5jb3JlLkFkZHJlc3MiUwoZVXBzdHJlYW1D",
+            "b25uZWN0aW9uT3B0aW9ucxI2Cg10Y3Bfa2VlcGFsaXZlGAEgASgLMh8uZW52",
+            "b3kuYXBpLnYyLmNvcmUuVGNwS2VlcGFsaXZlMucBChdDbHVzdGVyRGlzY292",
+            "ZXJ5U2VydmljZRJXCg5TdHJlYW1DbHVzdGVycxIeLmVudm95LmFwaS52Mi5E",
+            "aXNjb3ZlcnlSZXF1ZXN0Gh8uZW52b3kuYXBpLnYyLkRpc2NvdmVyeVJlc3Bv",
+            "bnNlIgAoATABEnMKDUZldGNoQ2x1c3RlcnMSHi5lbnZveS5hcGkudjIuRGlz",
+            "Y292ZXJ5UmVxdWVzdBofLmVudm95LmFwaS52Mi5EaXNjb3ZlcnlSZXNwb25z",
+            "ZSIhgtPkkwIbIhYvdjIvZGlzY292ZXJ5OmNsdXN0ZXJzOgEqQgeIAQGo4h4B",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Envoy.Api.V2.Core.AddressReflection.Descriptor, global::Envoy.Api.V2.Auth.CertReflection.Descriptor, global::Envoy.Api.V2.Core.BaseReflection.Descriptor, global::Envoy.Api.V2.Core.ConfigSourceReflection.Descriptor, global::Envoy.Api.V2.DiscoveryReflection.Descriptor, global::Envoy.Api.V2.Core.HealthCheckReflection.Descriptor, global::Envoy.Api.V2.Core.ProtocolReflection.Descriptor, global::Envoy.Api.V2.ClusterNS.CircuitBreakerReflection.Descriptor, global::Envoy.Api.V2.ClusterNS.OutlierDetectionReflection.Descriptor, global::Envoy.Type.PercentReflection.Descriptor, global::Google.Api.AnnotationsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Validate.ValidateReflection.Descriptor, global::Gogoproto.GogoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Envoy.Api.V2.Core.AddressReflection.Descriptor, global::Envoy.Api.V2.Auth.CertReflection.Descriptor, global::Envoy.Api.V2.Core.BaseReflection.Descriptor, global::Envoy.Api.V2.Core.ConfigSourceReflection.Descriptor, global::Envoy.Api.V2.DiscoveryReflection.Descriptor, global::Envoy.Api.V2.Core.HealthCheckReflection.Descriptor, global::Envoy.Api.V2.Core.ProtocolReflection.Descriptor, global::Envoy.Api.V2.ClusterNS.CircuitBreakerReflection.Descriptor, global::Envoy.Api.V2.ClusterNS.OutlierDetectionReflection.Descriptor, global::Envoy.Api.V2.EdsReflection.Descriptor, global::Envoy.Type.PercentReflection.Descriptor, global::Google.Api.AnnotationsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Validate.ValidateReflection.Descriptor, global::Gogoproto.GogoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Cluster), global::Envoy.Api.V2.Cluster.Parser, new[]{ "Name", "AltStatName", "Type", "EdsClusterConfig", "ConnectTimeout", "PerConnectionBufferLimitBytes", "LbPolicy", "Hosts", "HealthChecks", "MaxRequestsPerConnection", "CircuitBreakers", "TlsContext", "CommonHttpProtocolOptions", "HttpProtocolOptions", "Http2ProtocolOptions", "DnsRefreshRate", "DnsLookupFamily", "DnsResolvers", "OutlierDetection", "CleanupInterval", "UpstreamBindConfig", "LbSubsetConfig", "RingHashLbConfig", "CommonLbConfig", "TransportSocket", "Metadata", "ProtocolSelection", "UpstreamConnectionOptions", "CloseConnectionsOnHostHealthFailure", "DrainConnectionsOnHostRemoval" }, new[]{ "LbConfig" }, new[]{ typeof(global::Envoy.Api.V2.Cluster.Types.DiscoveryType), typeof(global::Envoy.Api.V2.Cluster.Types.LbPolicy), typeof(global::Envoy.Api.V2.Cluster.Types.DnsLookupFamily), typeof(global::Envoy.Api.V2.Cluster.Types.ClusterProtocolSelection) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Cluster.Types.EdsClusterConfig), global::Envoy.Api.V2.Cluster.Types.EdsClusterConfig.Parser, new[]{ "EdsConfig", "ServiceName" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Cluster), global::Envoy.Api.V2.Cluster.Parser, new[]{ "Name", "AltStatName", "Type", "EdsClusterConfig", "ConnectTimeout", "PerConnectionBufferLimitBytes", "LbPolicy", "Hosts", "LoadAssignment", "HealthChecks", "MaxRequestsPerConnection", "CircuitBreakers", "TlsContext", "CommonHttpProtocolOptions", "HttpProtocolOptions", "Http2ProtocolOptions", "DnsRefreshRate", "DnsLookupFamily", "DnsResolvers", "OutlierDetection", "CleanupInterval", "UpstreamBindConfig", "LbSubsetConfig", "RingHashLbConfig", "CommonLbConfig", "TransportSocket", "Metadata", "ProtocolSelection", "UpstreamConnectionOptions", "CloseConnectionsOnHostHealthFailure", "DrainConnectionsOnHostRemoval" }, new[]{ "LbConfig" }, new[]{ typeof(global::Envoy.Api.V2.Cluster.Types.DiscoveryType), typeof(global::Envoy.Api.V2.Cluster.Types.LbPolicy), typeof(global::Envoy.Api.V2.Cluster.Types.DnsLookupFamily), typeof(global::Envoy.Api.V2.Cluster.Types.ClusterProtocolSelection) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Cluster.Types.EdsClusterConfig), global::Envoy.Api.V2.Cluster.Types.EdsClusterConfig.Parser, new[]{ "EdsConfig", "ServiceName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Cluster.Types.LbSubsetConfig), global::Envoy.Api.V2.Cluster.Types.LbSubsetConfig.Parser, new[]{ "FallbackPolicy", "DefaultSubset", "SubsetSelectors" }, null, new[]{ typeof(global::Envoy.Api.V2.Cluster.Types.LbSubsetConfig.Types.LbSubsetFallbackPolicy) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Cluster.Types.LbSubsetConfig.Types.LbSubsetSelector), global::Envoy.Api.V2.Cluster.Types.LbSubsetConfig.Types.LbSubsetSelector.Parser, new[]{ "Keys" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Cluster.Types.RingHashLbConfig), global::Envoy.Api.V2.Cluster.Types.RingHashLbConfig.Parser, new[]{ "MinimumRingSize", "DeprecatedV1" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Cluster.Types.RingHashLbConfig.Types.DeprecatedV1), global::Envoy.Api.V2.Cluster.Types.RingHashLbConfig.Types.DeprecatedV1.Parser, new[]{ "UseStdHash" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Cluster.Types.CommonLbConfig), global::Envoy.Api.V2.Cluster.Types.CommonLbConfig.Parser, new[]{ "HealthyPanicThreshold", "ZoneAwareLbConfig", "LocalityWeightedLbConfig" }, new[]{ "LocalityConfigSpecifier" }, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Cluster.Types.CommonLbConfig.Types.ZoneAwareLbConfig), global::Envoy.Api.V2.Cluster.Types.CommonLbConfig.Types.ZoneAwareLbConfig.Parser, new[]{ "RoutingEnabled", "MinClusterSize" }, null, null, null),
@@ -139,7 +141,7 @@ namespace Envoy.Api.V2 {
   #region Messages
   /// <summary>
   /// Configuration for a single upstream cluster.
-  /// [#comment:next free field: 32]
+  /// [#comment:next free field: 34]
   /// </summary>
   public sealed partial class Cluster : pb::IMessage<Cluster> {
     private static readonly pb::MessageParser<Cluster> _parser = new pb::MessageParser<Cluster>(() => new Cluster());
@@ -174,6 +176,7 @@ namespace Envoy.Api.V2 {
       PerConnectionBufferLimitBytes = other.PerConnectionBufferLimitBytes;
       lbPolicy_ = other.lbPolicy_;
       hosts_ = other.hosts_.Clone();
+      LoadAssignment = other.loadAssignment_ != null ? other.LoadAssignment.Clone() : null;
       healthChecks_ = other.healthChecks_.Clone();
       MaxRequestsPerConnection = other.MaxRequestsPerConnection;
       CircuitBreakers = other.circuitBreakers_ != null ? other.CircuitBreakers.Clone() : null;
@@ -336,6 +339,34 @@ namespace Envoy.Api.V2 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Envoy.Api.V2.Core.Address> Hosts {
       get { return hosts_; }
+    }
+
+    /// <summary>Field number for the "load_assignment" field.</summary>
+    public const int LoadAssignmentFieldNumber = 33;
+    private global::Envoy.Api.V2.ClusterLoadAssignment loadAssignment_;
+    /// <summary>
+    /// Setting this is required for specifying members of
+    /// :ref:`STATIC&lt;envoy_api_enum_value_Cluster.DiscoveryType.STATIC>`,
+    /// :ref:`STRICT_DNS&lt;envoy_api_enum_value_Cluster.DiscoveryType.STRICT_DNS>`
+    /// or :ref:`LOGICAL_DNS&lt;envoy_api_enum_value_Cluster.DiscoveryType.LOGICAL_DNS>` clusters.
+    /// This field supersedes :ref:`hosts&lt;envoy_api_field_Cluster.hosts>` field.
+    /// [#comment:TODO(dio): Deprecate the hosts field and add it to DEPRECATED.md
+    /// once load_assignment is implemented.]
+    ///
+    /// .. attention::
+    ///
+    ///   Setting this allows non-EDS cluster types to contain embedded EDS equivalent
+    ///   :ref:`endpoint assignments&lt;envoy_api_msg_ClusterLoadAssignment>`.
+    ///   Setting this overrides :ref:`hosts&lt;envoy_api_field_Cluster.hosts>` values.
+    ///
+    /// [#not-implemented-hide:]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Envoy.Api.V2.ClusterLoadAssignment LoadAssignment {
+      get { return loadAssignment_; }
+      set {
+        loadAssignment_ = value;
+      }
     }
 
     /// <summary>Field number for the "health_checks" field.</summary>
@@ -759,6 +790,7 @@ namespace Envoy.Api.V2 {
       if (PerConnectionBufferLimitBytes != other.PerConnectionBufferLimitBytes) return false;
       if (LbPolicy != other.LbPolicy) return false;
       if(!hosts_.Equals(other.hosts_)) return false;
+      if (!object.Equals(LoadAssignment, other.LoadAssignment)) return false;
       if(!healthChecks_.Equals(other.healthChecks_)) return false;
       if (MaxRequestsPerConnection != other.MaxRequestsPerConnection) return false;
       if (!object.Equals(CircuitBreakers, other.CircuitBreakers)) return false;
@@ -796,6 +828,7 @@ namespace Envoy.Api.V2 {
       if (perConnectionBufferLimitBytes_ != null) hash ^= PerConnectionBufferLimitBytes.GetHashCode();
       if (LbPolicy != 0) hash ^= LbPolicy.GetHashCode();
       hash ^= hosts_.GetHashCode();
+      if (loadAssignment_ != null) hash ^= LoadAssignment.GetHashCode();
       hash ^= healthChecks_.GetHashCode();
       if (maxRequestsPerConnection_ != null) hash ^= MaxRequestsPerConnection.GetHashCode();
       if (circuitBreakers_ != null) hash ^= CircuitBreakers.GetHashCode();
@@ -941,6 +974,10 @@ namespace Envoy.Api.V2 {
         output.WriteRawTag(128, 2);
         output.WriteBool(DrainConnectionsOnHostRemoval);
       }
+      if (loadAssignment_ != null) {
+        output.WriteRawTag(138, 2);
+        output.WriteMessage(LoadAssignment);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -971,6 +1008,9 @@ namespace Envoy.Api.V2 {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) LbPolicy);
       }
       size += hosts_.CalculateSize(_repeated_hosts_codec);
+      if (loadAssignment_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(LoadAssignment);
+      }
       size += healthChecks_.CalculateSize(_repeated_healthChecks_codec);
       if (maxRequestsPerConnection_ != null) {
         size += _single_maxRequestsPerConnection_codec.CalculateSizeWithTag(MaxRequestsPerConnection);
@@ -1074,6 +1114,12 @@ namespace Envoy.Api.V2 {
         LbPolicy = other.LbPolicy;
       }
       hosts_.Add(other.hosts_);
+      if (other.loadAssignment_ != null) {
+        if (loadAssignment_ == null) {
+          loadAssignment_ = new global::Envoy.Api.V2.ClusterLoadAssignment();
+        }
+        LoadAssignment.MergeFrom(other.LoadAssignment);
+      }
       healthChecks_.Add(other.healthChecks_);
       if (other.maxRequestsPerConnection_ != null) {
         if (maxRequestsPerConnection_ == null || other.MaxRequestsPerConnection != 0) {
@@ -1374,6 +1420,13 @@ namespace Envoy.Api.V2 {
           }
           case 256: {
             DrainConnectionsOnHostRemoval = input.ReadBool();
+            break;
+          }
+          case 266: {
+            if (loadAssignment_ == null) {
+              loadAssignment_ = new global::Envoy.Api.V2.ClusterLoadAssignment();
+            }
+            input.ReadMessage(loadAssignment_);
             break;
           }
         }

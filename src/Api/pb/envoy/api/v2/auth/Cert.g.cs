@@ -44,55 +44,57 @@ namespace Envoy.Api.V2.Auth {
             "HHNpZ25lZF9jZXJ0aWZpY2F0ZV90aW1lc3RhbXAYBSADKAsyHS5lbnZveS5h",
             "cGkudjIuY29yZS5EYXRhU291cmNlIk8KFFRsc1Nlc3Npb25UaWNrZXRLZXlz",
             "EjcKBGtleXMYASADKAsyHS5lbnZveS5hcGkudjIuY29yZS5EYXRhU291cmNl",
-            "Qgq66cADBZIBAggBIvACChxDZXJ0aWZpY2F0ZVZhbGlkYXRpb25Db250ZXh0",
+            "Qgq66cADBZIBAggBIqoDChxDZXJ0aWZpY2F0ZVZhbGlkYXRpb25Db250ZXh0",
             "EjEKCnRydXN0ZWRfY2EYASABKAsyHS5lbnZveS5hcGkudjIuY29yZS5EYXRh",
-            "U291cmNlEjEKF3ZlcmlmeV9jZXJ0aWZpY2F0ZV9oYXNoGAIgAygJQhC66cAD",
-            "C5IBCCIGcgQgQChfEhoKEnZlcmlmeV9zcGtpX3NoYTI1NhgDIAMoCRIfChd2",
-            "ZXJpZnlfc3ViamVjdF9hbHRfbmFtZRgEIAMoCRI3ChNyZXF1aXJlX29jc3Bf",
-            "c3RhcGxlGAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLkJvb2xWYWx1ZRJICiRy",
-            "ZXF1aXJlX3NpZ25lZF9jZXJ0aWZpY2F0ZV90aW1lc3RhbXAYBiABKAsyGi5n",
-            "b29nbGUucHJvdG9idWYuQm9vbFZhbHVlEioKA2NybBgHIAEoCzIdLmVudm95",
-            "LmFwaS52Mi5jb3JlLkRhdGFTb3VyY2UisAQKEENvbW1vblRsc0NvbnRleHQS",
-            "NAoKdGxzX3BhcmFtcxgBIAEoCzIgLmVudm95LmFwaS52Mi5hdXRoLlRsc1Bh",
-            "cmFtZXRlcnMSRwoQdGxzX2NlcnRpZmljYXRlcxgCIAMoCzIhLmVudm95LmFw",
-            "aS52Mi5hdXRoLlRsc0NlcnRpZmljYXRlQgq66cADBZIBAhABEk4KInRsc19j",
-            "ZXJ0aWZpY2F0ZV9zZHNfc2VjcmV0X2NvbmZpZ3MYBiADKAsyIi5lbnZveS5h",
-            "cGkudjIuYXV0aC5TZHNTZWNyZXRDb25maWcSTQoSdmFsaWRhdGlvbl9jb250",
-            "ZXh0GAMgASgLMi8uZW52b3kuYXBpLnYyLmF1dGguQ2VydGlmaWNhdGVWYWxp",
-            "ZGF0aW9uQ29udGV4dEgAElIKJHZhbGlkYXRpb25fY29udGV4dF9zZHNfc2Vj",
-            "cmV0X2NvbmZpZxgHIAEoCzIiLmVudm95LmFwaS52Mi5hdXRoLlNkc1NlY3Jl",
-            "dENvbmZpZ0gAEhYKDmFscG5fcHJvdG9jb2xzGAQgAygJEksKDWRlcHJlY2F0",
-            "ZWRfdjEYBSABKAsyMC5lbnZveS5hcGkudjIuYXV0aC5Db21tb25UbHNDb250",
-            "ZXh0LkRlcHJlY2F0ZWRWMUICGAEaKgoMRGVwcmVjYXRlZFYxEhoKEmFsdF9h",
-            "bHBuX3Byb3RvY29scxgBIAEoCUIZChd2YWxpZGF0aW9uX2NvbnRleHRfdHlw",
-            "ZSJuChJVcHN0cmVhbVRsc0NvbnRleHQSPwoSY29tbW9uX3Rsc19jb250ZXh0",
-            "GAEgASgLMiMuZW52b3kuYXBpLnYyLmF1dGguQ29tbW9uVGxzQ29udGV4dBIX",
-            "CgNzbmkYAiABKAlCCrrpwAMFcgMo/wEigQMKFERvd25zdHJlYW1UbHNDb250",
-            "ZXh0Ej8KEmNvbW1vbl90bHNfY29udGV4dBgBIAEoCzIjLmVudm95LmFwaS52",
-            "Mi5hdXRoLkNvbW1vblRsc0NvbnRleHQSPgoacmVxdWlyZV9jbGllbnRfY2Vy",
-            "dGlmaWNhdGUYAiABKAsyGi5nb29nbGUucHJvdG9idWYuQm9vbFZhbHVlEi8K",
-            "C3JlcXVpcmVfc25pGAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLkJvb2xWYWx1",
-            "ZRJGChNzZXNzaW9uX3RpY2tldF9rZXlzGAQgASgLMicuZW52b3kuYXBpLnYy",
-            "LmF1dGguVGxzU2Vzc2lvblRpY2tldEtleXNIABJTCiVzZXNzaW9uX3RpY2tl",
-            "dF9rZXlzX3Nkc19zZWNyZXRfY29uZmlnGAUgASgLMiIuZW52b3kuYXBpLnYy",
-            "LmF1dGguU2RzU2VjcmV0Q29uZmlnSABCGgoYc2Vzc2lvbl90aWNrZXRfa2V5",
-            "c190eXBlIlQKD1Nkc1NlY3JldENvbmZpZxIMCgRuYW1lGAEgASgJEjMKCnNk",
-            "c19jb25maWcYAiABKAsyHy5lbnZveS5hcGkudjIuY29yZS5Db25maWdTb3Vy",
-            "Y2Ui8wEKBlNlY3JldBIMCgRuYW1lGAEgASgJEjwKD3Rsc19jZXJ0aWZpY2F0",
-            "ZRgCIAEoCzIhLmVudm95LmFwaS52Mi5hdXRoLlRsc0NlcnRpZmljYXRlSAAS",
-            "RgoTc2Vzc2lvbl90aWNrZXRfa2V5cxgDIAEoCzInLmVudm95LmFwaS52Mi5h",
-            "dXRoLlRsc1Nlc3Npb25UaWNrZXRLZXlzSAASTQoSdmFsaWRhdGlvbl9jb250",
-            "ZXh0GAQgASgLMi8uZW52b3kuYXBpLnYyLmF1dGguQ2VydGlmaWNhdGVWYWxp",
-            "ZGF0aW9uQ29udGV4dEgAQgYKBHR5cGVCCloEYXV0aKjiHgFiBnByb3RvMw=="));
+            "U291cmNlEjEKF3ZlcmlmeV9jZXJ0aWZpY2F0ZV9zcGtpGAMgAygJQhC66cAD",
+            "C5IBCCIGcgQgLCgsEjEKF3ZlcmlmeV9jZXJ0aWZpY2F0ZV9oYXNoGAIgAygJ",
+            "QhC66cADC5IBCCIGcgQgQChfEh8KF3ZlcmlmeV9zdWJqZWN0X2FsdF9uYW1l",
+            "GAQgAygJEjcKE3JlcXVpcmVfb2NzcF9zdGFwbGUYBSABKAsyGi5nb29nbGUu",
+            "cHJvdG9idWYuQm9vbFZhbHVlEkgKJHJlcXVpcmVfc2lnbmVkX2NlcnRpZmlj",
+            "YXRlX3RpbWVzdGFtcBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5Cb29sVmFs",
+            "dWUSKgoDY3JsGAcgASgLMh0uZW52b3kuYXBpLnYyLmNvcmUuRGF0YVNvdXJj",
+            "ZRIhChlhbGxvd19leHBpcmVkX2NlcnRpZmljYXRlGAggASgIIrAEChBDb21t",
+            "b25UbHNDb250ZXh0EjQKCnRsc19wYXJhbXMYASABKAsyIC5lbnZveS5hcGku",
+            "djIuYXV0aC5UbHNQYXJhbWV0ZXJzEkcKEHRsc19jZXJ0aWZpY2F0ZXMYAiAD",
+            "KAsyIS5lbnZveS5hcGkudjIuYXV0aC5UbHNDZXJ0aWZpY2F0ZUIKuunAAwWS",
+            "AQIQARJOCiJ0bHNfY2VydGlmaWNhdGVfc2RzX3NlY3JldF9jb25maWdzGAYg",
+            "AygLMiIuZW52b3kuYXBpLnYyLmF1dGguU2RzU2VjcmV0Q29uZmlnEk0KEnZh",
+            "bGlkYXRpb25fY29udGV4dBgDIAEoCzIvLmVudm95LmFwaS52Mi5hdXRoLkNl",
+            "cnRpZmljYXRlVmFsaWRhdGlvbkNvbnRleHRIABJSCiR2YWxpZGF0aW9uX2Nv",
+            "bnRleHRfc2RzX3NlY3JldF9jb25maWcYByABKAsyIi5lbnZveS5hcGkudjIu",
+            "YXV0aC5TZHNTZWNyZXRDb25maWdIABIWCg5hbHBuX3Byb3RvY29scxgEIAMo",
+            "CRJLCg1kZXByZWNhdGVkX3YxGAUgASgLMjAuZW52b3kuYXBpLnYyLmF1dGgu",
+            "Q29tbW9uVGxzQ29udGV4dC5EZXByZWNhdGVkVjFCAhgBGioKDERlcHJlY2F0",
+            "ZWRWMRIaChJhbHRfYWxwbl9wcm90b2NvbHMYASABKAlCGQoXdmFsaWRhdGlv",
+            "bl9jb250ZXh0X3R5cGUiiwEKElVwc3RyZWFtVGxzQ29udGV4dBI/ChJjb21t",
+            "b25fdGxzX2NvbnRleHQYASABKAsyIy5lbnZveS5hcGkudjIuYXV0aC5Db21t",
+            "b25UbHNDb250ZXh0EhcKA3NuaRgCIAEoCUIKuunAAwVyAyj/ARIbChNhbGxv",
+            "d19yZW5lZ290aWF0aW9uGAMgASgIIoEDChREb3duc3RyZWFtVGxzQ29udGV4",
+            "dBI/ChJjb21tb25fdGxzX2NvbnRleHQYASABKAsyIy5lbnZveS5hcGkudjIu",
+            "YXV0aC5Db21tb25UbHNDb250ZXh0Ej4KGnJlcXVpcmVfY2xpZW50X2NlcnRp",
+            "ZmljYXRlGAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLkJvb2xWYWx1ZRIvCgty",
+            "ZXF1aXJlX3NuaRgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5Cb29sVmFsdWUS",
+            "RgoTc2Vzc2lvbl90aWNrZXRfa2V5cxgEIAEoCzInLmVudm95LmFwaS52Mi5h",
+            "dXRoLlRsc1Nlc3Npb25UaWNrZXRLZXlzSAASUwolc2Vzc2lvbl90aWNrZXRf",
+            "a2V5c19zZHNfc2VjcmV0X2NvbmZpZxgFIAEoCzIiLmVudm95LmFwaS52Mi5h",
+            "dXRoLlNkc1NlY3JldENvbmZpZ0gAQhoKGHNlc3Npb25fdGlja2V0X2tleXNf",
+            "dHlwZSJUCg9TZHNTZWNyZXRDb25maWcSDAoEbmFtZRgBIAEoCRIzCgpzZHNf",
+            "Y29uZmlnGAIgASgLMh8uZW52b3kuYXBpLnYyLmNvcmUuQ29uZmlnU291cmNl",
+            "IvMBCgZTZWNyZXQSDAoEbmFtZRgBIAEoCRI8Cg90bHNfY2VydGlmaWNhdGUY",
+            "AiABKAsyIS5lbnZveS5hcGkudjIuYXV0aC5UbHNDZXJ0aWZpY2F0ZUgAEkYK",
+            "E3Nlc3Npb25fdGlja2V0X2tleXMYAyABKAsyJy5lbnZveS5hcGkudjIuYXV0",
+            "aC5UbHNTZXNzaW9uVGlja2V0S2V5c0gAEk0KEnZhbGlkYXRpb25fY29udGV4",
+            "dBgEIAEoCzIvLmVudm95LmFwaS52Mi5hdXRoLkNlcnRpZmljYXRlVmFsaWRh",
+            "dGlvbkNvbnRleHRIAEIGCgR0eXBlQgpaBGF1dGio4h4BYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Envoy.Api.V2.Core.BaseReflection.Descriptor, global::Envoy.Api.V2.Core.ConfigSourceReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Validate.ValidateReflection.Descriptor, global::Gogoproto.GogoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.TlsParameters), global::Envoy.Api.V2.Auth.TlsParameters.Parser, new[]{ "TlsMinimumProtocolVersion", "TlsMaximumProtocolVersion", "CipherSuites", "EcdhCurves" }, null, new[]{ typeof(global::Envoy.Api.V2.Auth.TlsParameters.Types.TlsProtocol) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.TlsCertificate), global::Envoy.Api.V2.Auth.TlsCertificate.Parser, new[]{ "CertificateChain", "PrivateKey", "Password", "OcspStaple", "SignedCertificateTimestamp" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.TlsSessionTicketKeys), global::Envoy.Api.V2.Auth.TlsSessionTicketKeys.Parser, new[]{ "Keys" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.CertificateValidationContext), global::Envoy.Api.V2.Auth.CertificateValidationContext.Parser, new[]{ "TrustedCa", "VerifyCertificateHash", "VerifySpkiSha256", "VerifySubjectAltName", "RequireOcspStaple", "RequireSignedCertificateTimestamp", "Crl" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.CertificateValidationContext), global::Envoy.Api.V2.Auth.CertificateValidationContext.Parser, new[]{ "TrustedCa", "VerifyCertificateSpki", "VerifyCertificateHash", "VerifySubjectAltName", "RequireOcspStaple", "RequireSignedCertificateTimestamp", "Crl", "AllowExpiredCertificate" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.CommonTlsContext), global::Envoy.Api.V2.Auth.CommonTlsContext.Parser, new[]{ "TlsParams", "TlsCertificates", "TlsCertificateSdsSecretConfigs", "ValidationContext", "ValidationContextSdsSecretConfig", "AlpnProtocols", "DeprecatedV1" }, new[]{ "ValidationContextType" }, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.CommonTlsContext.Types.DeprecatedV1), global::Envoy.Api.V2.Auth.CommonTlsContext.Types.DeprecatedV1.Parser, new[]{ "AltAlpnProtocols" }, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.UpstreamTlsContext), global::Envoy.Api.V2.Auth.UpstreamTlsContext.Parser, new[]{ "CommonTlsContext", "Sni" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.UpstreamTlsContext), global::Envoy.Api.V2.Auth.UpstreamTlsContext.Parser, new[]{ "CommonTlsContext", "Sni", "AllowRenegotiation" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.DownstreamTlsContext), global::Envoy.Api.V2.Auth.DownstreamTlsContext.Parser, new[]{ "CommonTlsContext", "RequireClientCertificate", "RequireSni", "SessionTicketKeys", "SessionTicketKeysSdsSecretConfig" }, new[]{ "SessionTicketKeysType" }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.SdsSecretConfig), global::Envoy.Api.V2.Auth.SdsSecretConfig.Parser, new[]{ "Name", "SdsConfig" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Envoy.Api.V2.Auth.Secret), global::Envoy.Api.V2.Auth.Secret.Parser, new[]{ "Name", "TlsCertificate", "SessionTicketKeys", "ValidationContext" }, new[]{ "Type" }, null, null)
@@ -805,12 +807,13 @@ namespace Envoy.Api.V2.Auth {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public CertificateValidationContext(CertificateValidationContext other) : this() {
       TrustedCa = other.trustedCa_ != null ? other.TrustedCa.Clone() : null;
+      verifyCertificateSpki_ = other.verifyCertificateSpki_.Clone();
       verifyCertificateHash_ = other.verifyCertificateHash_.Clone();
-      verifySpkiSha256_ = other.verifySpkiSha256_.Clone();
       verifySubjectAltName_ = other.verifySubjectAltName_.Clone();
       RequireOcspStaple = other.RequireOcspStaple;
       RequireSignedCertificateTimestamp = other.RequireSignedCertificateTimestamp;
       Crl = other.crl_ != null ? other.Crl.Clone() : null;
+      allowExpiredCertificate_ = other.allowExpiredCertificate_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -829,6 +832,8 @@ namespace Envoy.Api.V2.Auth {
     /// verified. By default, a client certificate is optional, unless one of the additional
     /// options (:ref:`require_client_certificate
     /// &lt;envoy_api_field_auth.DownstreamTlsContext.require_client_certificate>`,
+    /// :ref:`verify_certificate_spki
+    /// &lt;envoy_api_field_auth.CertificateValidationContext.verify_certificate_spki>`,
     /// :ref:`verify_certificate_hash
     /// &lt;envoy_api_field_auth.CertificateValidationContext.verify_certificate_hash>`, or
     /// :ref:`verify_subject_alt_name
@@ -844,6 +849,48 @@ namespace Envoy.Api.V2.Auth {
       set {
         trustedCa_ = value;
       }
+    }
+
+    /// <summary>Field number for the "verify_certificate_spki" field.</summary>
+    public const int VerifyCertificateSpkiFieldNumber = 3;
+    private static readonly pb::FieldCodec<string> _repeated_verifyCertificateSpki_codec
+        = pb::FieldCodec.ForString(26);
+    private readonly pbc::RepeatedField<string> verifyCertificateSpki_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// An optional list of base64-encoded SHA-256 hashes. If specified, Envoy will verify that the
+    /// SHA-256 of the DER-encoded Subject Public Key Information (SPKI) of the presented certificate
+    /// matches one of the specified values.
+    ///
+    /// A base64-encoded SHA-256 of the Subject Public Key Information (SPKI) of the certificate
+    /// can be generated with the following command:
+    ///
+    /// .. code-block:: bash
+    ///
+    ///   $ openssl x509 -in path/to/client.crt -noout -pubkey \
+    ///     | openssl pkey -pubin -outform DER \
+    ///     | openssl dgst -sha256 -binary \
+    ///     | openssl enc -base64
+    ///   NvqYIYSbgK2vCJpQhObf77vv+bQWtc5ek5RIOwPiC9A=
+    ///
+    /// This is the format used in HTTP Public Key Pinning.
+    ///
+    /// When both:
+    /// :ref:`verify_certificate_hash
+    /// &lt;envoy_api_field_auth.CertificateValidationContext.verify_certificate_hash>` and
+    /// :ref:`verify_certificate_spki
+    /// &lt;envoy_api_field_auth.CertificateValidationContext.verify_certificate_spki>` are specified,
+    /// a hash matching value from either of the lists will result in the certificate being accepted.
+    ///
+    /// .. attention::
+    ///
+    ///   This option is preferred over :ref:`verify_certificate_hash
+    ///   &lt;envoy_api_field_auth.CertificateValidationContext.verify_certificate_hash>`,
+    ///   because SPKI is tied to a private key, so it doesn't change when the certificate
+    ///   is renewed using the same private key.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> VerifyCertificateSpki {
+      get { return verifyCertificateSpki_; }
     }
 
     /// <summary>Field number for the "verify_certificate_hash" field.</summary>
@@ -871,26 +918,17 @@ namespace Envoy.Api.V2.Auth {
     ///   DF:6F:F7:2F:E9:11:65:21:26:8F:6F:2D:D4:96:6F:51:DF:47:98:83:FE:70:37:B3:9F:75:91:6A:C3:04:9D:1A
     ///
     /// Both of those formats are acceptable.
+    ///
+    /// When both:
+    /// :ref:`verify_certificate_hash
+    /// &lt;envoy_api_field_auth.CertificateValidationContext.verify_certificate_hash>` and
+    /// :ref:`verify_certificate_spki
+    /// &lt;envoy_api_field_auth.CertificateValidationContext.verify_certificate_spki>` are specified,
+    /// a hash matching value from either of the lists will result in the certificate being accepted.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> VerifyCertificateHash {
       get { return verifyCertificateHash_; }
-    }
-
-    /// <summary>Field number for the "verify_spki_sha256" field.</summary>
-    public const int VerifySpkiSha256FieldNumber = 3;
-    private static readonly pb::FieldCodec<string> _repeated_verifySpkiSha256_codec
-        = pb::FieldCodec.ForString(26);
-    private readonly pbc::RepeatedField<string> verifySpkiSha256_ = new pbc::RepeatedField<string>();
-    /// <summary>
-    /// If specified, Envoy will verify (pin) base64-encoded SHA-256 hash of
-    /// the Subject Public Key Information (SPKI) of the presented certificate.
-    /// This is the same format as used in HTTP Public Key Pinning.
-    /// [#not-implemented-hide:]
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> VerifySpkiSha256 {
-      get { return verifySpkiSha256_; }
     }
 
     /// <summary>Field number for the "verify_subject_alt_name" field.</summary>
@@ -901,6 +939,12 @@ namespace Envoy.Api.V2.Auth {
     /// <summary>
     /// An optional list of Subject Alternative Names. If specified, Envoy will verify that the
     /// Subject Alternative Name of the presented certificate matches one of the specified values.
+    ///
+    /// .. attention::
+    ///
+    ///   Subject Alternative Names are easily spoofable and verifying only them is insecure,
+    ///   therefore this option must be used together with :ref:`trusted_ca
+    ///   &lt;envoy_api_field_auth.CertificateValidationContext.trusted_ca>`.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> VerifySubjectAltName {
@@ -955,6 +999,20 @@ namespace Envoy.Api.V2.Auth {
       }
     }
 
+    /// <summary>Field number for the "allow_expired_certificate" field.</summary>
+    public const int AllowExpiredCertificateFieldNumber = 8;
+    private bool allowExpiredCertificate_;
+    /// <summary>
+    /// If specified, Envoy will not reject expired certificates.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool AllowExpiredCertificate {
+      get { return allowExpiredCertificate_; }
+      set {
+        allowExpiredCertificate_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as CertificateValidationContext);
@@ -969,12 +1027,13 @@ namespace Envoy.Api.V2.Auth {
         return true;
       }
       if (!object.Equals(TrustedCa, other.TrustedCa)) return false;
+      if(!verifyCertificateSpki_.Equals(other.verifyCertificateSpki_)) return false;
       if(!verifyCertificateHash_.Equals(other.verifyCertificateHash_)) return false;
-      if(!verifySpkiSha256_.Equals(other.verifySpkiSha256_)) return false;
       if(!verifySubjectAltName_.Equals(other.verifySubjectAltName_)) return false;
       if (RequireOcspStaple != other.RequireOcspStaple) return false;
       if (RequireSignedCertificateTimestamp != other.RequireSignedCertificateTimestamp) return false;
       if (!object.Equals(Crl, other.Crl)) return false;
+      if (AllowExpiredCertificate != other.AllowExpiredCertificate) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -982,12 +1041,13 @@ namespace Envoy.Api.V2.Auth {
     public override int GetHashCode() {
       int hash = 1;
       if (trustedCa_ != null) hash ^= TrustedCa.GetHashCode();
+      hash ^= verifyCertificateSpki_.GetHashCode();
       hash ^= verifyCertificateHash_.GetHashCode();
-      hash ^= verifySpkiSha256_.GetHashCode();
       hash ^= verifySubjectAltName_.GetHashCode();
       if (requireOcspStaple_ != null) hash ^= RequireOcspStaple.GetHashCode();
       if (requireSignedCertificateTimestamp_ != null) hash ^= RequireSignedCertificateTimestamp.GetHashCode();
       if (crl_ != null) hash ^= Crl.GetHashCode();
+      if (AllowExpiredCertificate != false) hash ^= AllowExpiredCertificate.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1006,7 +1066,7 @@ namespace Envoy.Api.V2.Auth {
         output.WriteMessage(TrustedCa);
       }
       verifyCertificateHash_.WriteTo(output, _repeated_verifyCertificateHash_codec);
-      verifySpkiSha256_.WriteTo(output, _repeated_verifySpkiSha256_codec);
+      verifyCertificateSpki_.WriteTo(output, _repeated_verifyCertificateSpki_codec);
       verifySubjectAltName_.WriteTo(output, _repeated_verifySubjectAltName_codec);
       if (requireOcspStaple_ != null) {
         _single_requireOcspStaple_codec.WriteTagAndValue(output, RequireOcspStaple);
@@ -1017,6 +1077,10 @@ namespace Envoy.Api.V2.Auth {
       if (crl_ != null) {
         output.WriteRawTag(58);
         output.WriteMessage(Crl);
+      }
+      if (AllowExpiredCertificate != false) {
+        output.WriteRawTag(64);
+        output.WriteBool(AllowExpiredCertificate);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1029,8 +1093,8 @@ namespace Envoy.Api.V2.Auth {
       if (trustedCa_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(TrustedCa);
       }
+      size += verifyCertificateSpki_.CalculateSize(_repeated_verifyCertificateSpki_codec);
       size += verifyCertificateHash_.CalculateSize(_repeated_verifyCertificateHash_codec);
-      size += verifySpkiSha256_.CalculateSize(_repeated_verifySpkiSha256_codec);
       size += verifySubjectAltName_.CalculateSize(_repeated_verifySubjectAltName_codec);
       if (requireOcspStaple_ != null) {
         size += _single_requireOcspStaple_codec.CalculateSizeWithTag(RequireOcspStaple);
@@ -1040,6 +1104,9 @@ namespace Envoy.Api.V2.Auth {
       }
       if (crl_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Crl);
+      }
+      if (AllowExpiredCertificate != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1058,8 +1125,8 @@ namespace Envoy.Api.V2.Auth {
         }
         TrustedCa.MergeFrom(other.TrustedCa);
       }
+      verifyCertificateSpki_.Add(other.verifyCertificateSpki_);
       verifyCertificateHash_.Add(other.verifyCertificateHash_);
-      verifySpkiSha256_.Add(other.verifySpkiSha256_);
       verifySubjectAltName_.Add(other.verifySubjectAltName_);
       if (other.requireOcspStaple_ != null) {
         if (requireOcspStaple_ == null || other.RequireOcspStaple != false) {
@@ -1076,6 +1143,9 @@ namespace Envoy.Api.V2.Auth {
           crl_ = new global::Envoy.Api.V2.Core.DataSource();
         }
         Crl.MergeFrom(other.Crl);
+      }
+      if (other.AllowExpiredCertificate != false) {
+        AllowExpiredCertificate = other.AllowExpiredCertificate;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1100,7 +1170,7 @@ namespace Envoy.Api.V2.Auth {
             break;
           }
           case 26: {
-            verifySpkiSha256_.AddEntriesFrom(input, _repeated_verifySpkiSha256_codec);
+            verifyCertificateSpki_.AddEntriesFrom(input, _repeated_verifyCertificateSpki_codec);
             break;
           }
           case 34: {
@@ -1126,6 +1196,10 @@ namespace Envoy.Api.V2.Auth {
               crl_ = new global::Envoy.Api.V2.Core.DataSource();
             }
             input.ReadMessage(crl_);
+            break;
+          }
+          case 64: {
+            AllowExpiredCertificate = input.ReadBool();
             break;
           }
         }
@@ -1673,6 +1747,7 @@ namespace Envoy.Api.V2.Auth {
     public UpstreamTlsContext(UpstreamTlsContext other) : this() {
       CommonTlsContext = other.commonTlsContext_ != null ? other.CommonTlsContext.Clone() : null;
       sni_ = other.sni_;
+      allowRenegotiation_ = other.allowRenegotiation_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1709,6 +1784,24 @@ namespace Envoy.Api.V2.Auth {
       }
     }
 
+    /// <summary>Field number for the "allow_renegotiation" field.</summary>
+    public const int AllowRenegotiationFieldNumber = 3;
+    private bool allowRenegotiation_;
+    /// <summary>
+    /// If true, server-initiated TLS renegotiation will be allowed.
+    ///
+    /// .. attention::
+    ///
+    ///   TLS renegotiation is considered insecure and shouldn't be used unless absolutely necessary.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool AllowRenegotiation {
+      get { return allowRenegotiation_; }
+      set {
+        allowRenegotiation_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as UpstreamTlsContext);
@@ -1724,6 +1817,7 @@ namespace Envoy.Api.V2.Auth {
       }
       if (!object.Equals(CommonTlsContext, other.CommonTlsContext)) return false;
       if (Sni != other.Sni) return false;
+      if (AllowRenegotiation != other.AllowRenegotiation) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1732,6 +1826,7 @@ namespace Envoy.Api.V2.Auth {
       int hash = 1;
       if (commonTlsContext_ != null) hash ^= CommonTlsContext.GetHashCode();
       if (Sni.Length != 0) hash ^= Sni.GetHashCode();
+      if (AllowRenegotiation != false) hash ^= AllowRenegotiation.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1753,6 +1848,10 @@ namespace Envoy.Api.V2.Auth {
         output.WriteRawTag(18);
         output.WriteString(Sni);
       }
+      if (AllowRenegotiation != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(AllowRenegotiation);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1766,6 +1865,9 @@ namespace Envoy.Api.V2.Auth {
       }
       if (Sni.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Sni);
+      }
+      if (AllowRenegotiation != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1787,6 +1889,9 @@ namespace Envoy.Api.V2.Auth {
       if (other.Sni.Length != 0) {
         Sni = other.Sni;
       }
+      if (other.AllowRenegotiation != false) {
+        AllowRenegotiation = other.AllowRenegotiation;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1807,6 +1912,10 @@ namespace Envoy.Api.V2.Auth {
           }
           case 18: {
             Sni = input.ReadString();
+            break;
+          }
+          case 24: {
+            AllowRenegotiation = input.ReadBool();
             break;
           }
         }

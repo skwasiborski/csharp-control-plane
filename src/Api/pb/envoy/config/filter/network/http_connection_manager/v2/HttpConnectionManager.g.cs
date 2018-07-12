@@ -1899,6 +1899,7 @@ namespace Envoy.Config.Filter.Network.HttpConnectionManager.V2 {
     /// * :ref:`envoy.grpc_json_transcoder &lt;config_http_filters_grpc_json_transcoder>`
     /// * :ref:`envoy.grpc_web &lt;config_http_filters_grpc_web>`
     /// * :ref:`envoy.health_check &lt;config_http_filters_health_check>`
+    /// * :ref:`envoy.header_to_metadata &lt;config_http_filters_header_to_metadata>`
     /// * :ref:`envoy.ip_tagging &lt;config_http_filters_ip_tagging>`
     /// * :ref:`envoy.lua &lt;config_http_filters_lua>`
     /// * :ref:`envoy.rate_limit &lt;config_http_filters_rate_limit>`

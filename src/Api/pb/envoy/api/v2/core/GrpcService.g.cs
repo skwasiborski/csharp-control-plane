@@ -1308,7 +1308,6 @@ namespace Envoy.Api.V2.Core {
             /// <summary>
             /// Google Compute Engine credentials.
             /// https://grpc.io/grpc/cpp/namespacegrpc.html#a6beb3ac70ff94bd2ebbd89b8f21d1f61
-            /// [#not-implemented-hide:]
             /// </summary>
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public global::Google.Protobuf.WellKnownTypes.Empty GoogleComputeEngine {
@@ -1324,7 +1323,6 @@ namespace Envoy.Api.V2.Core {
             /// <summary>
             /// Google refresh token credentials.
             /// https://grpc.io/grpc/cpp/namespacegrpc.html#a96901c997b91bc6513b08491e0dca37c.
-            /// [#not-implemented-hide:]
             /// </summary>
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public string GoogleRefreshToken {
@@ -1340,7 +1338,6 @@ namespace Envoy.Api.V2.Core {
             /// <summary>
             /// Service Account JWT Access credentials.
             /// https://grpc.io/grpc/cpp/namespacegrpc.html#a92a9f959d6102461f66ee973d8e9d3aa.
-            /// [#not-implemented-hide:]
             /// </summary>
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public global::Envoy.Api.V2.Core.GrpcService.Types.GoogleGrpc.Types.CallCredentials.Types.ServiceAccountJWTAccessCredentials ServiceAccountJwtAccess {
@@ -1356,7 +1353,6 @@ namespace Envoy.Api.V2.Core {
             /// <summary>
             /// Google IAM credentials.
             /// https://grpc.io/grpc/cpp/namespacegrpc.html#a9fc1fc101b41e680d47028166e76f9d0.
-            /// [#not-implemented-hide:]
             /// </summary>
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public global::Envoy.Api.V2.Core.GrpcService.Types.GoogleGrpc.Types.CallCredentials.Types.GoogleIAMCredentials GoogleIam {
@@ -1373,7 +1369,6 @@ namespace Envoy.Api.V2.Core {
             /// Custom authenticator credentials.
             /// https://grpc.io/grpc/cpp/namespacegrpc.html#a823c6a4b19ffc71fb33e90154ee2ad07.
             /// https://grpc.io/docs/guides/auth.html#extending-grpc-to-support-other-authentication-mechanisms.
-            /// [#not-implemented-hide:]
             /// </summary>
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public global::Envoy.Api.V2.Core.GrpcService.Types.GoogleGrpc.Types.CallCredentials.Types.MetadataCredentialsFromPlugin FromPlugin {
