@@ -1,16 +1,14 @@
 version_info: "0"
 resources:
 - "@type": type.googleapis.com/envoy.api.v2.Cluster
-  name: some_service
+  name: service_google
   connect_timeout: 0.25s
+  type: LOGICAL_DNS
+  # Comment out the following line to test on v6 networks
+  dns_lookup_family: V4_ONLY
   lb_policy: ROUND_ROBIN
-  type: EDS
-  eds_cluster_config:
-    eds_config: {ads: {}}
-- "@type": type.googleapis.com/envoy.api.v2.Cluster
-  name: some_service2
-  connect_timeout: 0.25s
-  lb_policy: ROUND_ROBIN
-  type: EDS
-  eds_cluster_config:
-    eds_config: {ads: {}}
+  hosts: 
+  - socket_address: 
+      address: google.com 
+      port_value: 443
+  tls_context: { sni: www.google.com }

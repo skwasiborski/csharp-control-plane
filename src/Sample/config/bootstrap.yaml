@@ -4,6 +4,18 @@ admin:
     socket_address: { address: 0.0.0.0, port_value: 9901 }
 node:
   id: envoy1
+static_resources:
+  clusters:
+    - name: ads_cluster
+      connect_timeout: { seconds: 5 }
+      dns_lookup_family: V4_ONLY
+      type: STRICT_DNS
+      hosts:
+      - socket_address:
+          address: host.docker.internal
+          port_value: 50051
+      lb_policy: ROUND_ROBIN
+      http2_protocol_options: {}
 dynamic_resources:
   cds_config: {ads: {}}
   lds_config: {ads: {}}
@@ -12,15 +24,3 @@ dynamic_resources:
     grpc_services:
       envoy_grpc:
         cluster_name: ads_cluster
-static_resources:
-  clusters:
-  - name: ads_cluster
-    connect_timeout: { seconds: 5 }
-    dns_lookup_family: V4_ONLY
-    type: STRICT_DNS
-    hosts:
-    - socket_address:
-        address: host.docker.internal
-        port_value: 50051
-    lb_policy: ROUND_ROBIN
-    http2_protocol_options: {}

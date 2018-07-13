@@ -23,7 +23,7 @@ namespace Envoy.ControlPlane.Server
         public ListenerDiscoveryService.ListenerDiscoveryServiceBase ListenerService => _listenerService;
         public RouteDiscoveryService.RouteDiscoveryServiceBase RouteService => _routeService;
         public AggregatedDiscoveryService.AggregatedDiscoveryServiceBase AggregatedService => _aggregatedService;
-        
+
         public Services(ICache cache, CancellationToken cancellationToken)
         {
             _cache = cache;
@@ -40,13 +40,13 @@ namespace Envoy.ControlPlane.Server
             ServerCallContext context,
             string defaultTypeUrl)
         {
-            var watches = new Watches
-            {
-                Endpoints = {Watch = Watch.Empty},
-                Clusters = {Watch = Watch.Empty},
-                Listeners = {Watch = Watch.Empty},
-                Routes = {Watch = Watch.Empty}
-            };
+            var streamId = Guid.NewGuid();
+            Console.WriteLine($"New Stream started {streamId}");
+
+            var endpoints = new WatchAndNounce();
+            var clusters = new WatchAndNounce();
+            var listeners = new WatchAndNounce();
+            var routes = new WatchAndNounce();
 
             try
             {
@@ -57,9 +57,12 @@ namespace Envoy.ControlPlane.Server
                     response.Nonce = (++streamNonce).ToString();
                     watchAndNounce.Nonce = streamNonce.ToString();
 
+                    Console.WriteLine(
+                        $"-> New response on stream {streamId}, typeUrl {response.TypeUrl}, version {response.VersionInfo}, nonce: {response.Nonce}");
+
                     // the value is consumed we do not want to get it again from this watch. 
                     watchAndNounce.Watch.Cancel();
-                    watchAndNounce.Watch = Watch.Empty; 
+                    watchAndNounce.Watch = Watch.Empty;
 
                     return responseStream.WriteAsync(response);
                 }
@@ -71,10 +74,10 @@ namespace Envoy.ControlPlane.Server
                 {
                     var resolved = await Task.WhenAny(
                         requestTask,
-                        watches.Clusters.Watch.Response,
-                        watches.Endpoints.Watch.Response,
-                        watches.Listeners.Watch.Response,
-                        watches.Routes.Watch.Response);
+                        clusters.Watch.Response,
+                        endpoints.Watch.Response,
+                        listeners.Watch.Response,
+                        routes.Watch.Response);
 
                     switch (resolved)
                     {
@@ -97,35 +100,38 @@ namespace Envoy.ControlPlane.Server
                                 request.TypeUrl = defaultTypeUrl;
                             }
 
+                            Console.WriteLine(
+                                $"<- New request on stream {streamId}, typeUrl {request.TypeUrl}, version {request.VersionInfo}, nonce: {request.ResponseNonce}");
+
                             switch (request.TypeUrl)
                             {
                                 case var typeUrl
                                     when typeUrl == TypeStrings.ClusterType &&
-                                         (watches.Clusters.Nonce == null ||
-                                          request.ResponseNonce == watches.Clusters.Nonce):
-                                    watches.Clusters.Watch.Cancel();
-                                    watches.Clusters.Watch = _cache.CreateWatch(request);
+                                         (clusters.Nonce == null ||
+                                          request.ResponseNonce == clusters.Nonce):
+                                    clusters.Watch.Cancel();
+                                    clusters.Watch = _cache.CreateWatch(request);
                                     break;
                                 case var typeUrl
                                     when typeUrl == TypeStrings.EndpointType &&
-                                         (watches.Endpoints.Nonce == null ||
-                                          request.ResponseNonce == watches.Endpoints.Nonce):
-                                    watches.Endpoints.Watch.Cancel();
-                                    watches.Endpoints.Watch = _cache.CreateWatch(request);
+                                         (endpoints.Nonce == null ||
+                                          request.ResponseNonce == endpoints.Nonce):
+                                    endpoints.Watch.Cancel();
+                                    endpoints.Watch = _cache.CreateWatch(request);
                                     break;
                                 case var typeUrl
                                     when typeUrl == TypeStrings.ListenerType &&
-                                         (watches.Listeners.Nonce == null ||
-                                          request.ResponseNonce == watches.Listeners.Nonce):
-                                    watches.Listeners.Watch.Cancel();
-                                    watches.Listeners.Watch = _cache.CreateWatch(request);
+                                         (listeners.Nonce == null ||
+                                          request.ResponseNonce == listeners.Nonce):
+                                    listeners.Watch.Cancel();
+                                    listeners.Watch = _cache.CreateWatch(request);
                                     break;
                                 case var typeUrl
                                     when typeUrl == TypeStrings.RouteType &&
-                                         (watches.Clusters.Nonce == null || 
-                                          request.ResponseNonce == watches.Routes.Nonce):
-                                    watches.Routes.Watch.Cancel();
-                                    watches.Routes.Watch = _cache.CreateWatch(request);
+                                         (routes.Nonce == null ||
+                                          request.ResponseNonce == routes.Nonce):
+                                    routes.Watch.Cancel();
+                                    routes.Watch = _cache.CreateWatch(request);
                                     break;
                             }
 
@@ -133,20 +139,20 @@ namespace Envoy.ControlPlane.Server
                             break;
                         // Check if any watch was resolved. If yes send he update.
                         case Task<DiscoveryResponse> response
-                            when ReferenceEquals(response, watches.Clusters.Watch.Response):
-                            await Send(response.Result, watches.Clusters);
+                            when ReferenceEquals(response, clusters.Watch.Response):
+                            await Send(response.Result, clusters);
                             break;
                         case Task<DiscoveryResponse> response
-                            when ReferenceEquals(response, watches.Endpoints.Watch.Response):
-                            await Send(response.Result, watches.Endpoints);
+                            when ReferenceEquals(response, endpoints.Watch.Response):
+                            await Send(response.Result, endpoints);
                             break;
                         case Task<DiscoveryResponse> response
-                            when ReferenceEquals(response, watches.Listeners.Watch.Response):
-                            await Send(response.Result, watches.Listeners);
+                            when ReferenceEquals(response, listeners.Watch.Response):
+                            await Send(response.Result, listeners);
                             break;
                         case Task<DiscoveryResponse> response
-                            when ReferenceEquals(response, watches.Routes.Watch.Response):
-                            await Send(response.Result, watches.Routes);
+                            when ReferenceEquals(response, routes.Watch.Response):
+                            await Send(response.Result, routes);
                             break;
                     }
                 }
@@ -154,23 +160,22 @@ namespace Envoy.ControlPlane.Server
             finally
             {
                 // cleanup the cahce before exit
-                watches.Clusters.Watch.Cancel();
-                watches.Endpoints.Watch.Cancel();
-                watches.Listeners.Watch.Cancel();
-                watches.Routes.Watch.Cancel();
+                clusters.Watch.Cancel();
+                endpoints.Watch.Cancel();
+                listeners.Watch.Cancel();
+                routes.Watch.Cancel();
+
+                Console.WriteLine($"Stream finalized {streamId}");
             }
         }
 
-        private struct Watches
+        private class WatchAndNounce
         {
-            public WatchAndNounce Endpoints;
-            public WatchAndNounce Clusters;
-            public WatchAndNounce Listeners;
-            public WatchAndNounce Routes;
-        }
+            public WatchAndNounce()
+            {
+                Watch = Watch.Empty;
+            }
 
-        private struct WatchAndNounce
-        {
             public Watch Watch;
             public string Nonce;
         }

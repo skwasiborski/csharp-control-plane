@@ -7,4 +7,4 @@ resources:
     domains: ["*"]
     routes:
     - match: { prefix: "/" }
-      route: { cluster: some_service }
+      route: { host_rewrite: www.google.com, cluster: service_google }
