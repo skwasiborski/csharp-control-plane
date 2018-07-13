@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Threading.Tasks;
 using Envoy.Api.V2;
 using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
+using Grpc.Core.Logging;
 
 namespace Envoy.ControlPlane.Cache
 {
@@ -35,15 +35,17 @@ namespace Envoy.ControlPlane.Cache
     public class SnapshotCache : ISnapshotCache
     {
         private readonly bool _adsMode;
+        private readonly ILogger _logger;
 
         private readonly ConcurrentDictionary<string, NodeInfo> _nodeInfos =
             new ConcurrentDictionary<string, NodeInfo>();
 
         private int _watchId = 0;
 
-        public SnapshotCache(bool adsMode)
+        public SnapshotCache(bool adsMode, ILogger logger)
         {
             _adsMode = adsMode;
+            _logger = logger.ForType<SnapshotCache>();
         }
         
         public void SetSnapshot(string node, Snapshot snapshot)
@@ -52,6 +54,8 @@ namespace Envoy.ControlPlane.Cache
 
             IEnumerable<(KeyValuePair<int, PendingResponse> pendingResponse, DiscoveryResponse response)> requestsToResolve;
 
+            _logger.InfoF($"Setting new snapshot with versions cluster: {snapshot.Clusters.Version}, endpoints: {snapshot.Endpoints.Version}, listeners: {snapshot.Listiners.Version}, routes: {snapshot.Routes.Version}");
+            
             lock (info.Lock)
             {
                 info.Snapshot = snapshot;
@@ -74,11 +78,14 @@ namespace Envoy.ControlPlane.Cache
 
             foreach (var request in requestsToResolve)
             {
-                if (request.response != null)
+                if (request.response == null)
                 {
                     // Incomplete request in ADS mode. Do not respond.
-                    request.pendingResponse.Value.Resolve(request.response);
+                    continue;
                 }
+
+                _logger.DebugF($"-> Responding from new snapshot TypeUrl: {request.response.TypeUrl}, Version: {request.response.VersionInfo}");
+                request.pendingResponse.Value.Resolve(request.response);
             }
         }
 
@@ -95,6 +102,8 @@ namespace Envoy.ControlPlane.Cache
                     var pendingResponse = new PendingResponse(request);
                     info.PendingResponses[watchId] = pendingResponse;
                 
+                    _logger.DebugF($"Returning pending response TypeUrl: {request.TypeUrl}, Version: {request.VersionInfo}, Nonce: {request.ResponseNonce}");
+
                     return new Watch(
                         pendingResponse.Response, 
                         () => CancelWatch(pendingResponse.Request.Node.Id, watchId));
@@ -110,6 +119,8 @@ namespace Envoy.ControlPlane.Cache
                 // Incomplete request in ADS mode. Do not respond.
                 return Watch.Empty;
             }
+
+            _logger.DebugF($"-> Returning immediate response TypeUrl: {response.TypeUrl}, Version: {response.VersionInfo}");
 
             return new Watch(
                 Task.FromResult(response),
@@ -153,6 +164,8 @@ namespace Envoy.ControlPlane.Cache
             {
                 // for ADS, the request names must match the snapshot names
                 // if they do not, then the watch is never responded, and it is expected that envoy makes another request
+                
+                _logger.DebugF($"Skipping response due to missinge resources in ads mode for request TypeUrl: {request.TypeUrl}, Version: {request.VersionInfo}, Nonce: {request.ResponseNonce}");
                 return null;
             }
 

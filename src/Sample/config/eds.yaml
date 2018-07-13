@@ -7,6 +7,5 @@ resources:
     - endpoint:
         address:
           socket_address:
-            address: 127.0.0.2
-            port_value: 1234
-          
+            address: 127.0.0.1
+            port_value: 1234 

@@ -12,3 +12,10 @@ resources:
       address: google.com 
       port_value: 443
   tls_context: { sni: www.google.com }
+- "@type": type.googleapis.com/envoy.api.v2.Cluster
+  name: service_local
+  connect_timeout: 0.25s
+  lb_policy: ROUND_ROBIN
+  type: EDS
+  eds_cluster_config:
+    eds_config: {ads: {}}

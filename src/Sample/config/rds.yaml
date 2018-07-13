@@ -6,5 +6,7 @@ resources:
   - name: local_service
     domains: ["*"]
     routes:
-    - match: { prefix: "/" }
+    - match: { prefix: "/google" }
       route: { host_rewrite: www.google.com, cluster: service_google }
+    - match: { prefix: "/local" }
+      route: { cluster: service_local }

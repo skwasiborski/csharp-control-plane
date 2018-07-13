@@ -1,16 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Envoy.Api.V2;
 using Envoy.ControlPlane.Cache;
 using Envoy.Service.Discovery.V2;
 using Grpc.Core;
+using Grpc.Core.Logging;
 
 namespace Envoy.ControlPlane.Server
 {
     public class Services
     {
         private readonly ICache _cache;
+        private readonly ILogger _logger;
+
         private readonly CancellationToken _cancellationToken;
         private readonly ClusterDiscoveryServiceImpl _clusterService;
         private readonly EndpointDiscoveryServiceImpl _endpointService;
@@ -24,9 +28,10 @@ namespace Envoy.ControlPlane.Server
         public RouteDiscoveryService.RouteDiscoveryServiceBase RouteService => _routeService;
         public AggregatedDiscoveryService.AggregatedDiscoveryServiceBase AggregatedService => _aggregatedService;
 
-        public Services(ICache cache, CancellationToken cancellationToken)
+        public Services(ICache cache, ILogger logger, CancellationToken cancellationToken)
         {
             _cache = cache;
+            _logger = logger.ForType<Services>();
             _cancellationToken = cancellationToken;
             _clusterService = new ClusterDiscoveryServiceImpl(this);
             _endpointService = new EndpointDiscoveryServiceImpl(this);
@@ -35,37 +40,31 @@ namespace Envoy.ControlPlane.Server
             _aggregatedService = new AggregatedDiscoveryServiceImpl(this);
         }
 
-        private async Task HandleStream(IAsyncStreamReader<DiscoveryRequest> requestStream,
-            IServerStreamWriter<DiscoveryResponse> responseStream,
+        private async Task HandleStream(
+            IAsyncEnumerator<DiscoveryRequest> requestStream,
+            IAsyncStreamWriter<DiscoveryResponse> responseStream,
             ServerCallContext context,
             string defaultTypeUrl)
         {
             var streamId = Guid.NewGuid();
-            Console.WriteLine($"New Stream started {streamId}");
+            _logger.InfoF($"New Stream started {streamId}");
 
             var endpoints = new WatchAndNounce();
             var clusters = new WatchAndNounce();
             var listeners = new WatchAndNounce();
             var routes = new WatchAndNounce();
+            
+            var watches = new Dictionary<string, WatchAndNounce>()
+            {
+                {TypeStrings.ClusterType, clusters},
+                {TypeStrings.EndpointType, endpoints},
+                {TypeStrings.ListenerType, listeners},
+                {TypeStrings.RouteType, routes},
+            };
 
             try
             {
                 var streamNonce = 0;
-
-                Task Send(DiscoveryResponse response, WatchAndNounce watchAndNounce)
-                {
-                    response.Nonce = (++streamNonce).ToString();
-                    watchAndNounce.Nonce = streamNonce.ToString();
-
-                    Console.WriteLine(
-                        $"-> New response on stream {streamId}, typeUrl {response.TypeUrl}, version {response.VersionInfo}, nonce: {response.Nonce}");
-
-                    // the value is consumed we do not want to get it again from this watch. 
-                    watchAndNounce.Watch.Cancel();
-                    watchAndNounce.Watch = Watch.Empty;
-
-                    return responseStream.WriteAsync(response);
-                }
 
                 var requestTask = requestStream.MoveNext(_cancellationToken);
 
@@ -92,6 +91,7 @@ namespace Envoy.ControlPlane.Server
                             var request = requestStream.Current;
                             if (defaultTypeUrl == TypeStrings.Any && string.IsNullOrEmpty(request.TypeUrl))
                             {
+                                _logger.Warning("type URL is required for ADS");
                                 throw new InvalidOperationException("type URL is required for ADS");
                             }
 
@@ -100,59 +100,34 @@ namespace Envoy.ControlPlane.Server
                                 request.TypeUrl = defaultTypeUrl;
                             }
 
-                            Console.WriteLine(
-                                $"<- New request on stream {streamId}, typeUrl {request.TypeUrl}, version {request.VersionInfo}, nonce: {request.ResponseNonce}");
+                            _logger.DebugF($"<- New request on stream {streamId}, typeUrl {request.TypeUrl}, version {request.VersionInfo}, nonce: {request.ResponseNonce}");
 
-                            switch (request.TypeUrl)
+                            var requestWatch = watches[request.TypeUrl];
+                            if (requestWatch.Nonce == null || requestWatch.Nonce == request.ResponseNonce)
                             {
-                                case var typeUrl
-                                    when typeUrl == TypeStrings.ClusterType &&
-                                         (clusters.Nonce == null ||
-                                          request.ResponseNonce == clusters.Nonce):
-                                    clusters.Watch.Cancel();
-                                    clusters.Watch = _cache.CreateWatch(request);
-                                    break;
-                                case var typeUrl
-                                    when typeUrl == TypeStrings.EndpointType &&
-                                         (endpoints.Nonce == null ||
-                                          request.ResponseNonce == endpoints.Nonce):
-                                    endpoints.Watch.Cancel();
-                                    endpoints.Watch = _cache.CreateWatch(request);
-                                    break;
-                                case var typeUrl
-                                    when typeUrl == TypeStrings.ListenerType &&
-                                         (listeners.Nonce == null ||
-                                          request.ResponseNonce == listeners.Nonce):
-                                    listeners.Watch.Cancel();
-                                    listeners.Watch = _cache.CreateWatch(request);
-                                    break;
-                                case var typeUrl
-                                    when typeUrl == TypeStrings.RouteType &&
-                                         (routes.Nonce == null ||
-                                          request.ResponseNonce == routes.Nonce):
-                                    routes.Watch.Cancel();
-                                    routes.Watch = _cache.CreateWatch(request);
-                                    break;
+                                // if the nonce is not correct ignore the request.
+                                requestWatch.Watch.Cancel();
+                                requestWatch.Watch = _cache.CreateWatch(request);
                             }
 
                             requestTask = requestStream.MoveNext(_cancellationToken);
                             break;
-                        // Check if any watch was resolved. If yes send he update.
-                        case Task<DiscoveryResponse> response
-                            when ReferenceEquals(response, clusters.Watch.Response):
-                            await Send(response.Result, clusters);
-                            break;
-                        case Task<DiscoveryResponse> response
-                            when ReferenceEquals(response, endpoints.Watch.Response):
-                            await Send(response.Result, endpoints);
-                            break;
-                        case Task<DiscoveryResponse> response
-                            when ReferenceEquals(response, listeners.Watch.Response):
-                            await Send(response.Result, listeners);
-                            break;
-                        case Task<DiscoveryResponse> response
-                            when ReferenceEquals(response, routes.Watch.Response):
-                            await Send(response.Result, routes);
+                        case Task<DiscoveryResponse> responseTask:
+                            // Watch was resolved. Send he update.
+                            var response = responseTask.Result;
+                            var responseWatch = watches[response.TypeUrl];
+                            
+                            response.Nonce = (++streamNonce).ToString();
+                            responseWatch.Nonce = streamNonce.ToString();
+
+                            // the value is consumed we do not want to get it again from this watch. 
+                            responseWatch.Watch.Cancel();
+                            responseWatch.Watch = Watch.Empty;
+
+                            _logger.DebugF(
+                                $"-> New response on stream {streamId}, typeUrl {response.TypeUrl}, version {response.VersionInfo}, nonce: {response.Nonce}");
+
+                            await responseStream.WriteAsync(response);
                             break;
                     }
                 }
@@ -165,7 +140,7 @@ namespace Envoy.ControlPlane.Server
                 listeners.Watch.Cancel();
                 routes.Watch.Cancel();
 
-                Console.WriteLine($"Stream finalized {streamId}");
+                _logger.InfoF($"Stream finalized {streamId}");
             }
         }
 

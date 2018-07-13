@@ -15,6 +15,7 @@ using Google.Protobuf;
 using Google.Protobuf.Reflection;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
+using Grpc.Core.Logging;
 using YamlDotNet.Serialization;
 
 namespace Sample
@@ -26,7 +27,8 @@ namespace Sample
         public static void Main(string[] args)
         {
             var cancelationTokenSource = new CancellationTokenSource();
-            var cache = new SnapshotCache(true);
+            var logger = new ConsoleLogger();
+            var cache = new SnapshotCache(true, logger);
             
             var watcher = new SnapshotFileWatcher(s => cache.SetSnapshot("envoy1", s));
             Console.WriteLine("Configuration loaded from files");
@@ -34,7 +36,7 @@ namespace Sample
             watcher.Start();
             Console.WriteLine("File watcher started");
             
-            var services = new Services(cache, cancelationTokenSource.Token);
+            var services = new Services(cache, logger, cancelationTokenSource.Token);
             Server server = new Server
             {
                 Services =
