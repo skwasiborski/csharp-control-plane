@@ -3,11 +3,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Envoy.Api.V2;
 using Envoy.Api.V2.Core;
-using Envoy.Api.V2.Endpoint;
+using Envoy.ControlPlane.Server.Cache;
 using Google.Protobuf;
+using Grpc.Core.Logging;
 using Xunit;
 
-namespace Envoy.ControlPlane.Cache.Tests
+namespace Envoy.ControlPlane.Server.Tests
 {
     public class SnapshotCacheTest
     {
@@ -64,7 +65,7 @@ namespace Envoy.ControlPlane.Cache.Tests
             DiscoveryRequest requests2)
         {
             // Arrange
-            var cache = new SnapshotCache(true);
+            var cache = new SnapshotCache(true, new NullLogger());
 
             // Act
             var result = await cache.Fetch(requests0);
@@ -81,7 +82,7 @@ namespace Envoy.ControlPlane.Cache.Tests
             DiscoveryRequest requests2)
         {
             // Arrange
-            var cache = new SnapshotCache(true);
+            var cache = new SnapshotCache(true, new NullLogger());
 
             // Act
             var resultTask = cache.CreateWatch(requests0);
@@ -99,7 +100,7 @@ namespace Envoy.ControlPlane.Cache.Tests
             DiscoveryRequest requests2)
         {
             // Arrange
-            var cache = new SnapshotCache(true);
+            var cache = new SnapshotCache(true, new NullLogger());
             cache.SetSnapshot("node1", BuildSnapshot("2"));
 
             // Act
@@ -118,7 +119,7 @@ namespace Envoy.ControlPlane.Cache.Tests
             DiscoveryRequest requests2)
         {
             // Arrange
-            var cache = new SnapshotCache(true);
+            var cache = new SnapshotCache(true, new NullLogger());
             cache.SetSnapshot("node1", BuildSnapshot("2"));
 
             // Act
@@ -138,7 +139,7 @@ namespace Envoy.ControlPlane.Cache.Tests
             DiscoveryRequest requests2)
         {
             // Arrange
-            var cache = new SnapshotCache(true);
+            var cache = new SnapshotCache(true, new NullLogger());
             cache.SetSnapshot("node1", BuildSnapshot("1"));
             var resultTask = cache.CreateWatch(requests1).Response;
 

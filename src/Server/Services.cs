@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Envoy.Api.V2;
-using Envoy.ControlPlane.Cache;
+using Envoy.ControlPlane.Server.Cache;
 using Envoy.Service.Discovery.V2;
 using Grpc.Core;
 using Grpc.Core.Logging;
@@ -53,7 +53,7 @@ namespace Envoy.ControlPlane.Server
             var clusters = new WatchAndNounce();
             var listeners = new WatchAndNounce();
             var routes = new WatchAndNounce();
-            
+
             var watches = new Dictionary<string, WatchAndNounce>()
             {
                 {TypeStrings.ClusterType, clusters},
@@ -100,7 +100,8 @@ namespace Envoy.ControlPlane.Server
                                 request.TypeUrl = defaultTypeUrl;
                             }
 
-                            _logger.DebugF($"<- New request on stream {streamId}, typeUrl {request.TypeUrl}, version {request.VersionInfo}, nonce: {request.ResponseNonce}");
+                            _logger.DebugF(
+                                $"<- New request on stream {streamId}, typeUrl {request.TypeUrl}, version {request.VersionInfo}, nonce: {request.ResponseNonce}");
 
                             var requestWatch = watches[request.TypeUrl];
                             if (requestWatch.Nonce == null || requestWatch.Nonce == request.ResponseNonce)
@@ -109,14 +110,19 @@ namespace Envoy.ControlPlane.Server
                                 requestWatch.Watch.Cancel();
                                 requestWatch.Watch = _cache.CreateWatch(request);
                             }
+                            else
+                            {
+                                _logger.DebugF(
+                                    $"<- Ignoring request on stream {streamId}, epectedNonce: {requestWatch.Nonce}, recievedNonce: {request.ResponseNonce}");
+                            }
 
                             requestTask = requestStream.MoveNext(_cancellationToken);
                             break;
                         case Task<DiscoveryResponse> responseTask:
-                            // Watch was resolved. Send he update.
+                            // Watch was resolved. Send the update.
                             var response = responseTask.Result;
                             var responseWatch = watches[response.TypeUrl];
-                            
+
                             response.Nonce = (++streamNonce).ToString();
                             responseWatch.Nonce = streamNonce.ToString();
 

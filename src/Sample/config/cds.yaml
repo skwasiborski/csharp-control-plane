@@ -14,7 +14,7 @@ resources:
   tls_context: { sni: www.google.com }
 - "@type": type.googleapis.com/envoy.api.v2.Cluster
   name: service_local
-  connect_timeout: 0.25s
+  connect_timeout: 0.26s
   lb_policy: ROUND_ROBIN
   type: EDS
   eds_cluster_config:

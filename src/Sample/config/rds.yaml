@@ -1,4 +1,3 @@
-version_info: "0"
 resources:
 - "@type": type.googleapis.com/envoy.api.v2.RouteConfiguration
   name: local_route

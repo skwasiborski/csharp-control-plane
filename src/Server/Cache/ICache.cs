@@ -1,9 +1,8 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using Envoy.Api.V2;
 
-namespace Envoy.ControlPlane.Cache
+namespace Envoy.ControlPlane.Server.Cache
 {
     public interface ICache
     {

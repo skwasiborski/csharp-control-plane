@@ -9,7 +9,7 @@ using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core.Logging;
 
-namespace Envoy.ControlPlane.Cache
+namespace Envoy.ControlPlane.Server.Cache
 {
     public interface ISnapshotCache : ICache
     {
@@ -96,7 +96,9 @@ namespace Envoy.ControlPlane.Cache
             
             lock (info.Lock)
             {
-                if (info.Snapshot == null || request.VersionInfo == info.Snapshot.GetVersion(request.TypeUrl))
+                if (info.Snapshot == null ||
+                    request.VersionInfo == info.Snapshot.GetVersion(request.TypeUrl) ||
+                    request.ErrorDetail != null)
                 {
                     var watchId = Interlocked.Increment(ref _watchId);
                     var pendingResponse = new PendingResponse(request);

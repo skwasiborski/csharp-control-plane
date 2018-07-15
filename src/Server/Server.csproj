@@ -4,8 +4,21 @@
     <LangVersion>7.2</LangVersion>
     <RootNamespace>Envoy.ControlPlane.Server</RootNamespace>
   </PropertyGroup>
+  <PropertyGroup>
+    <!--NuGet Properties-->
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Sławomir Kwasiborski</Authors>
+    <PackageId>Envoy.ControlPlane.Server</PackageId>
+    <PackageTags>envoy controlplane</PackageTags>
+    <Description>CSharp control plane for envoy</Description>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageLicenseUrl>https://opensource.org/licenses/Apache-2.0</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/skwasiborski/csharp-control-plane</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Api\Api.csproj" />
-    <ProjectReference Include="..\Cache\Cache.csproj" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,4 @@
-﻿version_info: "0"
-resources:
+﻿resources:
 - "@type": type.googleapis.com/envoy.api.v2.Listener
   name: listener_0
   address:

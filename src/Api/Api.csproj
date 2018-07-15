@@ -2,6 +2,21 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <LangVersion>7.2</LangVersion>
+   
+  </PropertyGroup>
+  <PropertyGroup>
+    <!--NuGet Properties-->
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Sławomir Kwasiborski</Authors>
+    <PackageId>Envoy.DataPlaneApi</PackageId>
+    <PackageTags>envoy data-plane-api</PackageTags>
+    <Description>dotnet definitions for envoy data-plane-api</Description>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageLicenseUrl>https://opensource.org/licenses/Apache-2.0</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/skwasiborski/csharp-control-plane</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.6.0" />

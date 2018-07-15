@@ -1,4 +1,3 @@
-version_info: "0"
 resources:
 - "@type": type.googleapis.com/envoy.api.v2.ClusterLoadAssignment
   cluster_name: service_local
@@ -8,4 +7,4 @@ resources:
         address:
           socket_address:
             address: 127.0.0.1
-            port_value: 1234 
+            port_value: 1235

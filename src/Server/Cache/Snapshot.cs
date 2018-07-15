@@ -2,7 +2,7 @@
 using System.Collections.Immutable;
 using Google.Protobuf;
 
-namespace Envoy.ControlPlane.Cache
+namespace Envoy.ControlPlane.Server.Cache
 {
     public class Snapshot
     {

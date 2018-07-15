@@ -1,7 +1,7 @@
 ﻿using System;
 using Grpc.Core.Logging;
 
-namespace Envoy.ControlPlane.Cache
+namespace Envoy.ControlPlane.Server.Cache
 {
     /// <summary>
     /// Extensions providing using formatable strings as messages.
