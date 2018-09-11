@@ -46,5 +46,22 @@ namespace Envoy.ControlPlane.Server.Cache
         public const string RouteType = TypePrefix + "RouteConfiguration";
         public const string ListenerType = TypePrefix + "Listener";
         public const string Any = "";
+
+        public static int GetPriority(string type)
+        {
+            switch (type)
+            {
+                case TypeStrings.ClusterType:
+                    return 0;
+                case TypeStrings.EndpointType:
+                    return 1;
+                case TypeStrings.ListenerType:
+                    return 2;
+                case TypeStrings.RouteType:
+                    return 3;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type));
+            }
+        }
     }
 }

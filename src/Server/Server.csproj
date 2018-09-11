@@ -7,7 +7,7 @@
   <PropertyGroup>
     <!--NuGet Properties-->
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Authors>Sławomir Kwasiborski</Authors>
     <PackageId>Envoy.ControlPlane.Server</PackageId>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using Google.Protobuf;
 
@@ -29,7 +30,7 @@ namespace Envoy.ControlPlane.Server.Cache
             return GetByType(type, e => e.Version);
         }
 
-        public ImmutableDictionary<string, IMessage> GetResources(string type)
+        public IDictionary<string, IMessage> GetResources(string type)
         {
             return GetByType(type, e => e.Items);
         }

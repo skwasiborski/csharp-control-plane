@@ -68,6 +68,7 @@ namespace Envoy.ControlPlane.Server.Cache
                             kv.Value.Request,
                             snapshot.GetResources(kv.Value.Request.TypeUrl),
                             snapshot.GetVersion(kv.Value.Request.TypeUrl))))
+                    .OrderBy(r => TypeStrings.GetPriority(r.kv.Value.Request.TypeUrl)) // This ensures the responses will be send in following order CDS, EDS, LDS, RDS
                     .ToArray();
 
                 foreach (var r in requestsToResolve)
@@ -92,7 +93,7 @@ namespace Envoy.ControlPlane.Server.Cache
         public Watch CreateWatch(DiscoveryRequest request)
         {
             var info = _nodeInfos.GetOrAdd(request.Node.Id, id => new NodeInfo());
-            ImmutableDictionary<string, IMessage> resources;
+            IDictionary<string, IMessage> resources;
             
             lock (info.Lock)
             {
@@ -157,7 +158,7 @@ namespace Envoy.ControlPlane.Server.Cache
 
         private DiscoveryResponse CreateStreamResponse( 
             DiscoveryRequest request,
-            ImmutableDictionary<string, IMessage> resources,
+            IDictionary<string, IMessage> resources,
             string version)
         {
             if (request.ResourceNames.Count > 0 && 
@@ -176,7 +177,7 @@ namespace Envoy.ControlPlane.Server.Cache
         
         private DiscoveryResponse CreateResponse(
             DiscoveryRequest request,
-            ImmutableDictionary<string, IMessage> resources,
+            IDictionary<string, IMessage> resources,
             string version)
         {
             IEnumerable<IMessage> resourcesToSend;
